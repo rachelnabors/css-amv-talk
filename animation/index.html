@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Operation Candy Halo</title>
+
+  <link rel="stylesheet" href="css/screen.css?12" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
+
+  <!-- focus on the syntax, not the prefixes. -->
+  <script src="js/prefixfree.1.0.7.min.js"></script>
+  
+</head>
+<body class="loading">
+<div id="curtains" class="stage">
+    <div id="sign">
+	    <h1>Loading</h1>
+	    <p>Please adjust your audio</p>
+    </div>
+    <img src="img/tassle.png" id="tassel">
+</div>
+
+<div id="stage1" class="stage">
+	<div class="foreground level">
+		<div class="equipment" id="left-floor-monitor"></div>
+		<div class="equipment" id="right-floor-monitor"></div>
+	</div>
+
+	<div class="midground level">
+		<div class="tuna"></div>
+		<img id="laptop" src="img/laptop.png" height="143" width="250" />
+	</div>
+	
+	<div class="background level">
+		<div class="equipment" id="mixer"></div>
+		<div class="tuna">
+		  <div class="expression"></div>
+		</div>
+		<img class="equipment speakers" id="right-speaker" src="img/equip_speaker.png" />
+		<img class="equipment speakers" id="left-speaker" src="img/equip_speaker.png" />
+		<div class="wall" id="leftWall"></div>
+	    <div class="wall" id="rightWall"></div>
+	    <div class="wall" id="backWall"></div>
+	</div>
+</div>
+
+<audio id="chime">
+   <source src="music/chime.mp3" type="audio/mpeg; codecs="mp3"">
+   <source src="music/chime.ogg" type="audio/ogg; codecs="vorbis"">
+</audio>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined') {
+	    document.write(unescape("%3Cscript src='js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+<script type="text/javascript" src="js/seamlessLoop.2.0.min.js"></script>
+
+<script>
+
+	// jQuery's .load() when set on window will wait for all text and images before running
+	// Plus putting it at the bottom makes the browser render the CSS + background images firsties.
+	$(window).load(function(){
+		var soundtrack = new SeamlessLoop();
+		//check if the browser can play MP3's. If not, use ogg.
+		var audio  = document.createElement("audio"),
+		canPlayMP3 = (typeof audio.canPlayType === "function" &&
+		              audio.canPlayType("audio/mpeg") !== "");
+		if (canPlayMP3===true) {
+		  soundtrack.addUri("music/candy-candy_opening.mp3", 16554.8, "opening");
+		  soundtrack.addUri("music/candy-candy_loop.mp3", 7395.5, "loop");
+		} else {
+		  soundtrack.addUri("music/candy-candy_opening.ogg", 16554.8, "opening");
+		  soundtrack.addUri("music/candy-candy_loop.ogg", 7395.5, "loop");
+		}
+
+		function soundsLoaded() {
+		  soundtrack.start("opening"); //start w/ opening
+		  soundtrack.update("loop"); //forever update w/ loop
+		};
+
+		soundtrack.callback(soundsLoaded);
+
+		function soundsLoaded() {
+		    setTimeout(function(){ 
+		        $("body").removeClass("loading").addClass("loaded");
+		        $("#sign").html("<h1>Please enjoy</h1>");
+		        document.getElementById('chime').play();
+		        $("#tassel").click(function(){
+		        	$(this).addClass("pulled");
+		            $("body").removeClass("loaded").addClass("playing");
+				    soundtrack.start("opening"); //start w/ opening
+				    soundtrack.update("loop"); //forever update w/ loop
+		        });
+		    },1000);
+		};
+	});
+</script>
+
+</body>
+</html>

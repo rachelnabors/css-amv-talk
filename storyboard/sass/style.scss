@@ -1,0 +1,70 @@
+// ---------------------------------------------------------------------------
+// Variables
+$background: #3f4752;
+$canvas_black: #141f31;
+$foreground: #dfeff6;
+$projects_bg: #333b47;
+$projects: #d8e32c;
+$grey: #858585;
+$link: #56001d; // things that assume users will want to click them
+$highlight: #0097c0; // things that want to be seen and not clicked
+$callout: #e64988; // things that would like to be clicked at sometime or another.
+
+
+// Imports
+@import "normalize";
+@import "helper-classes";
+@import "helper-functions";
+@import "grid";
+@import "typography";
+
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+	background: $background;
+	color: $foreground;
+}
+
+img {display: block;}
+
+.time { display: block; }
+
+.js #storyboard > li .deets {
+  @extend %hide;
+}
+
+a{
+  &:link, &:visited, &:hover, &:active {
+    color: $highlight;
+  }
+}
+
+.fancybox-wrap {
+  img {
+    @include margin-trailer();
+  }
+  ul li {
+    list-style: disc inside;
+    padding-left: 2em;
+    text-align: left;
+  }
+}
+
+@import "print";

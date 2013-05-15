@@ -1,0 +1,14 @@
+// converts px to em values via http://thesassway.com/intermediate/responsive-web-design-part-1
+@function calc-em($target-px, $context) {
+  @return ($target-px / $context) * 1em;
+}
+
+// html {
+//   font-size: 62.5%; /* Sets up the Base 10 stuff */
+// }
+
+// needs above, converts to REM values via http://css-tricks.com/snippets/css/less-mixin-for-rem-font-sizing/
+@mixin font-size($sizeValue: 1.6){ 
+	font-size: ($sizeValue * 10) + px; 
+	font-size: $sizeValue + rem; 
+}

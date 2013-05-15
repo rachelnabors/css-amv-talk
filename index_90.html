@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=1024, user-scalable=no">
+
+    <title>Rachel Nabors on Flashless Animation: Music Video with CSS3 Animation and HTML5 Audio</title>
+    
+    <!-- Required stylesheet -->
+    <link rel="stylesheet" href="core/deck.core.css">
+    
+    <!-- Extension CSS files go here. Remove or add as needed. -->
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/menu/deck.menu.css">
+    <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+    <link rel="stylesheet" href="extensions/status/deck.status.css">
+    <link rel="stylesheet" href="extensions/hash/deck.hash.css">
+    <link rel="stylesheet" href="extensions/scale/deck.scale.css">
+    <link rel="stylesheet" href="extensions/pointer/deck.pointer.css">
+    <link rel="stylesheet" href="extensions/syntaxhighlighter/deck.syntaxhighlighter.css">
+
+    <!-- Style theme. More available in /themes/style/ or create your own. -->
+    <link rel="stylesheet" href="themes/style/profesh.css">
+    
+    <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+    
+    <!-- Required Modernizr file -->
+    <script src="modernizr.custom.js"></script>
+    <script type="text/javascript" src="http://use.typekit.com/ewk1gzp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+</head>
+<body class="deck-container">
+
+<section class="slide title-slide">
+    <div class="talk-title">
+        <hgroup>
+            <h1>Animated Music Videos</h1>
+            <h2>with CSS3 Animations and HTML5 Audio</h2>
+        </hgroup>
+        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/crowchick">@CrowChick</a></p>
+        <p>Follow along at <a href="http://www.rachelnabors.com/cssdevconf">RachelNabors.com/cssdevconf</a></p>
+        <img src="img/bg_no-flash.png" alt="No Flash Allowed">
+    </div>
+    <figure class="self-portrait">
+        <img src="img/p_rachelnabors.png" alt="A manga-inspired self-portrait of Rachel, clutching a laptop and looking adorable.">
+        <figcaption class="ir">with Rachel the Great (aka Rachel Nabors)</figcaption>
+    </figure>
+</section>
+
+<section class="slide">
+    <h2>Mission Statement</h2>
+    <div class="slide">
+        <h3>What we are covering</h3>
+        <ul>
+            <li>animating stuff with CSS3</li>
+            <li>playing music with JS and HTML5</li>
+            <li>handling play state with JS</li>
+        </ul>
+    </div>
+    <div class="slide">
+        <h3>What we’re NOT covering</h3>
+        <ul>
+            <li>Canvas</li>
+            <li>SVG</li>
+            <li>animation with JS (gross)</li>
+            <li>vendor prefixes</li>
+            <li>performance</li>
+            <li>mobile</li>
+            <li>retina displays</li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>Some assumptions</h2>
+    <ul>
+        <li>We're using Chrome. YMMV in other browsers (IE9 will hate you).</li>
+        <li><a href="http://leaverou.github.com/prefixfree/">-prefix-free</a> because you should be paying attention to Ideal Syntax, not prefixes.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Why this kicks ass</h2>
+    <ul>
+        <li class="slide"><strong>It's familiar.</strong> You have and know the tools already.</li>
+        <li class="slide"><strong>It's the future.</strong> Working with advanced techniques forces a deeper understanding.</li>
+        <li class="slide"><strong>It's fun.</strong> Isn't that enough?</li>
+        <li class="slide"><strong>It's cool.</strong> <a href="http://www.google.com/logos/2012/nemo/nemo12.html">Jennifer Hom and Google animated a Little Nemo comic</a> in celebration of its 107th anniversary. <div class="slide">Which reminds me...</div></li>
+        <li class="slide"><strong>Content != copy.</strong> There's more to design and CSS than typography, pretty colors, and hover effects.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Our Music</h2>
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/UoK8DaJRDaM" frameborder="0" allowfullscreen></iframe>
+    <p>&ldquo;CANDY CANDY&rdquo; by きゃりーぱみゅぱみゅ (Kyary Pamyu Pamyu)</p>
+    <ul>
+        <li class="slide">Start w/ the opening riff (about 13 seconds)</li>
+        <li class="slide">Loop the portion after the drop</li>      
+        <li class="slide">There is no way we can top that video.</li>
+    </ul>       
+</section>
+
+<section class="slide">
+    <h2>Storyboarding</h2>
+    <p>I made a storyboard for us at <a href="../storyboard/index.html" target="_blank">rachelnabors.com/cssdevconf/storyboard</a></p>
+    <p>Let's look at it. (Shoo shoo, go analyze.)</p>
+    <ul>
+        <li class="slide">Storyboards will save you a lot of time figuring out <em>what</em> happens <em>when.</em></li>
+        <li class="slide"><a href="http://canadian-rainwater.deviantart.com/art/Storyboard-Honour-Amongst-Thieves-v-02-338385683">Some storyboards</a> are really detailed.</li>
+        <li class="slide">An animation house would next make an animatic, an animated version of the storyboard w/ sound.
+            <iframe width="560" height="315" src="http://www.youtube.com/embed/ha9VbeluXgs" frameborder="0" allowfullscreen></iframe>
+        </li>
+        <li class="slide">But I am not an animation house.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Crafting Experiences in 2.5 Dimensions</h1>
+</section>
+
+<section class="slide">
+    <h2>2.5 Dimensions</h2>
+    <p>...refers to moving 2 dimensional constructs in 3 dimensions.</p>
+    <ul>
+        <li class="slide">立版古 (tatebanko), popular in Japan for hundreds of years. <a href="http://www.amazon.com/gp/product/B004T17YZU/ref=as_li_ss_tl?ie=UTF8&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B004T17YZU&amp;linkCode=as2&amp;=mangapunk-20">You can even buy kits today.</a><img src="http://www.assoc-amazon.com/e/ir?t=mangapunk-20&amp;l=as2&amp;o=1&amp;a=B004T17YZU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /> <img src="img/g_tatebanko.jpg" alt="A Japanese diorama or Hokusai's wave painting." /></li>
+        <li class="slide"><a href="http://watchthetitles.submarinechannel.com/articles/0019-Lemony_Snicket_s_A_Series_of_Unfortunate_Events">The ending of <em>A Series of Unfortunate Events</em></a> is gorgeous example.</li>
+        <li class="slide">The browser is a perfect stage! See also <a href="http://hobolobo.net/">Hobo Lobo</a>.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>The Browser as a Stage</h2>
+    <p>Time to start slicing up our <abbr title="Document Object Model">DOM</abbr> realestate.</p>
+    <ul>
+        <li class="slide">Think of the browser as a stage, with a foreground, background, etc.</li>
+        <li class="slide">Let's leave the curtain interaction till the end and start with the cat.</li>
+        <li class="slide">
+            <pre><code data-language="html">&lt;div id=&quot;stage1&quot; class=&quot;stage&quot;&gt;
+    &lt;div class=&quot;foreground level&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;midground level&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;background level&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </li>
+        <li class="slide">Put the cat in the <code>midground</code>:
+            <pre><code data-language="html">&lt;div class="midground"&gt;
+    &lt;div class="tuna"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Animating with CSS3</h1>
+</section>
+
+<section class="slide">
+    <h2>The Walk Cycle</h2>
+    <p>A walk cycle is the "Hello, world!" of animation.</p>
+    <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="CrowChick"><code></code></pre>
+<script async src="http://codepen.io/assets/embed/ei.js"></script>
+    <ul>
+        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://www.rachelnabors.com/animation/toys/img/tuna-walking_sprite.png">sprite</a>)</li>
+        <li class="slide">...which breaks down to <code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;iteration-count&gt;;</code>
+        <li class="slide">There are <a href="https://developer.mozilla.org/en-US/docs/CSS/timing-function#The_steps()_class_of_timing-functions">a few</a> <a href="http://codepen.io/CrowChick/pen/zeFqy">gotchas</a>.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>The Playing State</h2>
+    <p>We need to indicate to the browser when we're playing so we can kick off different animations.</p>
+    <ul>
+        <li class="slide">Right now we're playing immediately on page load.</li>
+        <li class="slide">So, let's add this to our <code>window.load</code> function:
+            <pre><code data-language="js">$("body").addClass("playing");</code></pre></li>
+        <li class="slide">Add a <code>.playing</code> selector to Tuna's animation.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Positioning for take off</h2>
+    <p>Before we can do much with Tuna the Cat, we need to adjust his positioning a smidge.</p>
+    <ul>
+        <li class="slide">He's walking in the wrong direction, so let's flip w/ <code>transform: scaleX(-1);</code></li>
+        <li class="slide">Use absolute positioning + negative margins to center him:
+            <pre><code data-language="css">margin-left: -200px; 
+position: absolute;
+bottom: 183px;
+left: 50%;</code></pre></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Walking across the page</h2>
+    <p>Tuna needs to walk across the page, not in one place.</p>
+    <ul>
+        <li class="slide">Storyboard check: he has 4 seconds to get his butt to the center of the page.</li>
+        <li class="slide">
+            Add a transition: <code>transition: margin-left 4s linear;</code>
+        </li>
+        <li class="slide">Adjust his <code>margin-left</code> to <code>-800px</code>.</li>
+        <li class="slide">When in play state, pull him in to center.
+            <pre><code data-language="css">.midground .playing .tuna { margin-left: -300px; }</code></pre>
+        </li>
+        <li class="slide">You should also move his animations to his play state.</li>
+        <li class="slide">These measurements are <strong>important</strong> to the end result.</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Timing</h2>
+    <p>We need to make Tuna sit down exactly 4 seconds in.</p>
+    <p class="slide">We can do this with <code>animation-delay</code>, a second animation, and using this <a href="http://www.rachelnabors.com/animation/draft/img/tuna_sprite.png">new sprite</a>.</p>
+    <div class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="lIviK" data-user="CrowChick"><code></code></pre>
+<script async src="http://codepen.io/assets/embed/ei.js"></script></div>
+    <ul>
+        <li class="slide"><code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; <strong>&lt;animation-delay&gt;</strong> &lt;iteration-count&gt;;</code></li>
+        <li class="slide">The magic is in two places: <code>sit-down .5s steps(5) <strong>4s</strong> 1;</code> and <code>animation-fill-mode: forwards;</code></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>MORE animation!</h2>
+    <p>After he sits down, he starts typing at a computer.</p>
+    <ul>
+        <li class="slide">Define typing animation:
+            <pre><code data-language="css">@keyframes typing {
+  0% { background-position: -400px -1000px; } 
+  100% {background-position: -400px -1400px; } 
+}</code></pre>
+        </li>
+        <li class="slide">After he sits, he starts typing. Add to <code>animation</code>: <code>typing .5s steps(2) 4.5s infinite</code>
+        <li class="slide">Give him a computer:
+            <pre><code data-language="html">&lt;img id="laptop" src="img/laptop.png" height="143" width="250" /&gt;</code></pre>
+        </li>
+        <li class="slide">Style the laptop:
+            <pre><code data-language="css">#laptop {
+  position: absolute;
+  bottom: 183px; left: 50%;
+  margin-left: -125px;
+  z-index: 20;
+}</code></pre>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Describing the Third Dimension</h1>
+</section>
+
+<section class="slide">
+    <h2>Building a room in 3 Dimensions</h2>
+    <p>At 7.5 seconds, Tuna carves a room in 3D.</p>
+    <ul>
+        <li class="slide">Welcome to 3D transforms!</li>
+        <li class="slide">Remember <code>transform: scaleX(-1)</code>?</li>
+        <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="pykvc" data-user="CrowChick"><code></code></pre>
+<script async src="http://codepen.io/assets/embed/ei.js"></script></li>
+<!--        <li class="slide">Add wall elements to the background.</li>
+        <li class="slide">Expand and position levels and stages.</li>
+        <li class="slide">Add perspective to <code>#stage1</code></li>
+        <li class="slide">Use a delayed transition.</li>        
+        <li class="slide">Remember the <code>.playing</code> state.</li>
+ -->    
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Hiding things with opacity</h2>
+    <p>We need to start hiding some things until the appropriate time to reveal.</p>
+    <ul>
+        <li class="slide">Nope, not gonna use JS!</li>
+        <li class="slide">The magic property is <code>opacity: 0;</code> (add it to <code>.wall</code>)</li>
+        <li class="slide">Once playing, we'll shift to <code>opacity: 1;</code></li>
+        <li class="slide">The elements in question get a delayed transition: <code>opacity 1s 7s</code></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Setting up the (Sound) Stage</h2>
+    <p>At 11 seconds, Tuna starts setting up sound equipment.</p>
+    <ul>
+        <li class="slide">Start by positioning everything first, hiding/timing/showing second.</li>
+        <li class="slide">In the <code>.foreground</code>: <pre><code data-language="html">&lt;div class=&quot;equipment&quot; id=&quot;left-floor-monitor&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;equipment&quot; id=&quot;right-floor-monitor&quot;&gt;&lt;/div&gt;</code></pre>
+        </li>
+        <li class="slide">In the <code>.background</code>: <pre><code data-language="html">&lt;div class=&quot;equipment&quot; id=&quot;mixer&quot;&gt;&lt;/div&gt;
+&lt;img class=&quot;equipment speakers&quot; id=&quot;right-speaker&quot; src=&quot;img/equip_speaker.png&quot; /&gt;
+&lt;img class=&quot;equipment speakers&quot; id=&quot;left-speaker&quot; src=&quot;img/equip_speaker.png&quot; /&gt;</code></pre>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Setting up the (Sound) Stage continued</h2>
+    <p>Since these elements are animated, we're going to use sprites on 'em.</p>
+<pre><code data-language="css">.equipment { /* Base styles for all equipment */
+  position: absolute;
+  left: 50%;
+}
+
+#left-floor-monitor {
+  background: url(../img/sprite_equip_monitor_left.png) 0 0 no-repeat;
+  bottom: 46px; 
+  margin-left: -862px;
+  width: 1054px; height: 303px;
+}
+
+#right-floor-monitor {
+  background: url(../img/sprite_equip_monitor_right.png) 0 0 no-repeat;
+  bottom: 13px; 
+  margin-left: 144px;
+  width: 482px; height: 346px;
+}
+
+#mixer {
+  background: url(../img/sprite_equip_mixer.png) 0 0 no-repeat;
+  bottom: 219px; 
+  margin-left: -298px;
+  width: 612px; height: 462px;
+  z-index: 3;
+}
+
+.speakers {
+  bottom: 300px;
+  z-index: 2;
+}
+
+#right-speaker { margin-left: -496px; }
+
+#left-speaker { margin-left: 104px; }</code></pre>
+</section>
+
+<section class="slide">
+    <h2>Animating the Equipment</h2>
+    <p>While we have everything in front of us, let's animate!</p>
+    <pre><code data-language="css">@keyframes left-speaker-scoot {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -606px; } 
+}
+
+@keyframes right-speaker-fiddle {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -692px; } 
+}
+
+@keyframes mixer-nudge {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -462px; } 
+}
+
+@keyframes throb {
+  0% { transform: scale(0.98); }
+  100% { transform: scale(1); } 
+}
+</code></pre>
+</section>
+
+<section class="slide">
+    <h2>Animating the Equipment Continued</h2>
+    <p>Timing is very important. Refer to the storyboard and remember the <code>.playing</code> state.</p>
+    <pre><code data-language="css">.playing #left-floor-monitor {
+  animation: left-speaker-scoot .5s steps(2) 11.1s forwards;
+}
+
+.playing #right-floor-monitor {
+  animation: right-speaker-fiddle .5s steps(2) 11.51s forwards;
+}
+
+.playing #mixer {
+  animation: mixer-nudge .4s steps(1) 12.01s forwards;
+}</code></pre>
+</section>
+
+<section class="slide">
+    <h2>Cel animations with nested elements and sprites</h2>
+    <p>Some animated graphics are composites of several smaller animations.</p>
+    <ul>
+        <li class="slide">13 seconds in, Tuna smirks. See <a href="../storyboard/index.html">storyboard</a>.</li>
+        <li class="slide"><a href="../draft/img/sprite_tuna_boss.png">Check out this sprite.</a></li>
+        <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="CrowChick"><code></code></pre>
+<script async src="http://codepen.io/assets/embed/ei.js"></script></li>
+        <li class="slide">Make sure all <code>.tuna</code> CSS declarations have a <code>.midground</code> or <code>.background</code> clarifier and mind the play state!</li>
+        <li class="slide"><a href="http://codepen.io/CrowChick/pen/BIhvs">We could use animations on pseudo elements instead <code>.expression</code></a>, but only FireFox supports them.</li>
+        <li class="slide">Replace <code>infinite</code> with <code>13.5s 1 forwards</code>.
+        <li class="slide">On <code>.background .tuna</code>:<pre><code data-language="css">position: absolute;
+left: 50%; bottom: 615px;
+margin-left: -33px;
+z-index: 2;</code></pre></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>More fun with transitions!</h2>
+    <p>Three things need to move via transition:</p>
+    <ol>
+        <li>The mixer gets pushed to the right</li>
+        <li>DJ Tuna pops up from behind the mixer</li>
+        <li>The speakers drop down from on high</li>
+    </ol>
+    <div class="slide">Push the mixer (animation + transition): 
+            <pre><code data-language="css">.playing #mixer {
+  margin-left: -294px; /* the push's final state */
+  transition: margin-left .3s linear 12.01s; /* the push's transition */
+  animation: mixer-nudge .4s steps(1) 12.01s forwards;
+}
+
+@keyframes mixer-nudge {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -462px; } 
+}</code></pre></div>
+</section>
+
+<section class="slide">
+    <h2>More fun with transitions! Continued!</h2>
+    <p>So many transitions that one slide cannot hold them all!</p>
+    <ul>
+        <li class="slide">
+            DJ Tuna pops up:
+            <pre><code data-language="css">.background .tuna {
+  bottom: 400px;
+}
+.playing .background .tuna {
+  bottom: 615px;
+  transition: bottom 1s linear 12.02s;
+}</code></pre>
+        </li>
+        <li class="slide">
+            Speakers drop down (and throb):
+            <pre><code data-language="css">.speakers { bottom: 350px; }
+.playing .speakers { 
+  bottom: 300px; 
+  transition: bottom .5s linear 13s;
+  animation: throb .5s linear 14.75s infinite;
+}
+</code></pre>
+        </li>
+    </ul>
+</section>
+<section class="slide">
+    <h2>Hiding and Showing Revisited</h2>
+    <p>Now that we can see that everything is working well, let's hide-n-show.</p>
+    <ul>
+        <li class="slide">It all comes down to our good friends <code>opacity</code> and <code>transition-delay</code>.</li>
+        <li class="slide">Hide all that equipment and DJ Tuna:<pre><code data-language="css">.equipment, .background .tuna { opacity: 0; }
+
+.playing .equipment, .playing .background .tuna {
+  opacity: 1;
+}</code></pre></li>
+        <li class="slide">Now to use delays to transition us to <code>opacity: 1</code>!</li>
+        <li class="slide">Add these transitions to the transition sets:<pre><code data-language="css">.playing #left-floor-monitor { transition: opacity .01s linear 11s; }
+.playing #right-floor-monitor { transition: opacity .01s linear 11.5s; }
+.playing #mixer { transition: opacity .01s linear 12s; }
+.playing .speakers { transition: opacity .5s linear 13s; }
+.playing .background .tuna { transition: opacity .01s linear 12.5s; }</code></pre>
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Hiding and Showing Continued</h2>
+    <p>Lastly, we need to hide <code>.midground .tuna</code> at 10.5 seconds.</p>
+    <ul>
+        <li class="slide">Give <code>.midground .tuna</code> an <code>opacity: 1</code></li>
+        <li class="slide">Add to his transition set: <code>opacity .1s linear 10.5s</code></li>
+        <li class="slide">Give <code>.playing .midground .tuna</code> an <code>opacity: 0;</code></li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Adding the Music</h1>
+</section>
+
+<section class="slide">
+    <h2>HTML5 Audio is not what it should be</h2>
+    <p>What, you thought this would be easy?</p>
+    <ul>
+        <li class="slide">Actually, it kinda is. No JS timer needed. JS + CSS timers run side by side.</li>
+        <li class="slide">Originally I just wanted to add an <code>&lt;audio&gt;</code> element and set it to loop.</li>
+        <li class="slide">But HTML5 audio's native looping method leaves gaps, <a href="http://codepen.io/CrowChick/pen/gcump">as you can hear</a>.</li>
+        <li class="slide"><a href="https://github.com/Hivenfour/SeamlessLoop">SeamlessLoop.js</a> helps us overcome the gaps.</li>
+        <li class="slide">CURSE YOU, HTML5 AUDIO IMPLEMENTATIONS! This should be elegant!</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Implementing SeamlessLoop.js</h2>
+    <p>Dear Future Rachel, I'm dumping explanation of this on you. Haha. Love, <del>Current</del> Past Rachel
+<pre><code data-language="js">//new SeamlessLoop object
+var soundtrack = new SeamlessLoop();
+
+//check if the browser can play MP3's. If not, use ogg.
+var audio  = document.createElement("audio"),
+canPlayMP3 = (typeof audio.canPlayType === "function" &&
+              audio.canPlayType("audio/mpeg") !== "");
+if (canPlayMP3===true) {
+  soundtrack.addUri("music/candy-candy_opening.mp3", 16554.8, "opening");
+  soundtrack.addUri("music/candy-candy_loop.mp3", 7395.5, "loop");
+} else {
+  soundtrack.addUri("music/candy-candy_opening.ogg", 16554.8, "opening");
+  soundtrack.addUri("music/candy-candy_loop.ogg", 7395.5, "loop");
+}
+
+//Establish your callback function that will be called when all sounds are pre-loaded
+function soundsLoaded() {
+  soundtrack.start("opening"); //start w/ opening
+  soundtrack.update("loop"); //forever update w/ loop
+};
+
+//and call it
+soundtrack.callback(soundsLoaded);
+</code></pre>
+
+<p>P.S. Be sure to put all of this inside <code>(window).load()</code>!</p>
+</section>
+
+<section class="slide">
+    <h1>You deserve a cookie!</h1>
+    <p class="slide">Oh, wait...</p>
+    <p class="slide">What if they don't have all the assets loaded?</p>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Loading All the Things</h1>
+</section>
+
+<section class="slide">
+    <h2>2 new states</h2>
+    <p>Referring to the storyboard, you can see there are two additional states:</p>
+    <ol>
+        <li><strong>Loading</strong> JS, CSS, music and images are still being downloaded.</li>
+        <li><strong>Loaded</strong> They are all downloaded. We are go for play.</li>
+    </ol>
+    <div class="slide">
+        <p>We'll start the page in a default state of <code>.loading</code>.</p>
+        <pre><code data-language="html">&lt;body class=&quot;loading&quot;&gt;</code></pre>
+    </div>
+    <div class="slide">
+        <p class="slide">Stages should be hidden and shown to prevent content flashes:</p>
+        <pre><code data-language="css">.loading .stage, .loaded .stage { opacity: 0; }
+.loading #curtains, .loaded #curtains { opacity: 1; }
+.playing .stage { opacity: 1; }</code></pre>
+    </div>
+</section>
+
+<section class="slide">
+    <h2>The Loading Screen</h2>
+    <p>Time to add a new &ldquo;stage&rdquo;</p>
+    <pre><code data-language="html"><div id="curtains" class="stage">
+    <div id="sign">
+        <div class="wrap">
+            <h1>Loading</h1>
+            <p>Please adjust your audio</p>
+        </div>
+    </div>
+    <img src="img/tassle.png" id="tassel" />
+</div></code></pre>
+    <p class="slide">
+        Now we design the loading screen.</p>
+</section>
+
+<section class="slide">
+    <h2>Styling the Curtains and Tassel</h2>
+    <p>Given all you just learned, this should be easy. Nothing new here.</p>
+        <pre><code data-language="css">#curtains {
+background:
+  linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent 75%), 
+  linear-gradient(91deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, #666666 35%, #595959 40%, #4d4d4d 43%, #999999 50%, #ababab 55%, #a6a6a6 60%, #999999 65%, #737373 70%, #595959 75%, rgba(153, 153, 153, 0) 80%, rgba(153, 153, 153, 0)), 
+  linear-gradient(88deg, #595959, #737373 20%, #8c8c8c 25%, #999999 40%, #808080 50%, #737373 70%, #666666 80%, #595959 90%, #4d4d4d);
+background-size: auto, 300px 100%, 109px 100%;
+  box-shadow: 0px 10px 100px 10px rgba(42, 41, 51, 1);
+  transition: top 2s ease-in;
+  z-index: 3;
+}
+
+.playing #curtains {
+  top: -120%;
+}
+
+#tassel {
+  animation: swing linear 4s infinite alternate;
+  transition: bottom 1s;
+  transform-origin: center -20px 0;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(8px 8px 20px #000); /* Chrome only, sorry! Is funny w/ transforms. FEATURE not a BUG?! */
+  position: absolute;
+  bottom: 100%;
+  right: 20%;
+  height: 100%; //so it looks nice in tinier browsers
+  max-height: 1049px; //so we don't scale up in the largest browsers
+}
+
+@keyframes swing {
+  0% { transform: rotateZ(1deg); }
+  100% { transform: rotateZ(-1deg); }
+}
+</code></pre>
+
+</section>
+
+<section class="slide">
+    <h2>Handling the Play State</h2>
+    <p>What just happened?</p>
+    <ul>
+        <li class="slide">
+            <code>.playing</code> should only happen when the #tassel is clicked.
+        </li>
+        <li class="slide">
+            <pre><code data-language="js">// a short timeout ensures we get to see the loading state locally.
+setTimeout(function(){ 
+    $("#tassel").click(function(){;
+        $("body").addClass("playing");
+    });
+},1000);</code></pre>
+        </li>
+        <li class="slide">
+            Now we just need to tie it in w/ <code>soundsloaded()</code> (which waits for all the music to load before firing.)
+        </li>
+</section>
+
+<section class="slide">
+    <h2>The sign</h2>
+    <p>We'll change what the sign says based on the page's state. For now, let's style it.</p>
+            And some CSS for the sign:
+        <pre><code data-language="css">#sign {
+  background: #ccc;
+  border: 3px solid #444;
+  margin: 300px auto 0;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+  transform: rotateZ(1deg);
+  transition: margin-top 8s linear;
+  width: 40%;
+  z-index: 120;
+}
+
+#sign .wrap {
+  background: #fff;
+  border: 2px solid #666;
+  min-height: 7em;
+}
+
+#sign:before, #sign:after {
+  content: " ";
+  width: 3px;
+  height: 310px;
+  background: #000;
+  position: absolute;
+  left: 1em;
+  top: -310px;
+  z-index: 101;
+}
+
+#sign:after {
+  left: auto;
+  right: 1em;
+}</code></pre>
+</section>
+
+<section class="slide">
+    <h2>Waiting for the Music to Load</h2>
+    <p>Normally I'd add an event listener &quot;canplaythrough&quot;, but...</p>
+    <ul>
+        <li class="slide">
+            We already have <code>soundsLoaded()</code>
+        </li>
+        <li class="slide">
+            Let's move all the state change code inside it
+        </li>
+        <li class="slide">
+            <pre><code data-language="js">function soundsLoaded() {
+    setTimeout(function(){ 
+        $("body").removeClass("loading").addClass("loaded");
+        $("#tassel").click(function(){
+            $(this).addClass("pulled");
+            $("body").removeClass("loaded").addClass("playing");
+        });
+    },1000);
+    soundtrack.start("opening"); //start w/ opening
+    soundtrack.update("loop"); //forever update w/ loop
+};</code></pre>
+        </li>
+        <li class="slide">
+            Now just move the two soundtrack methods inside <code>#tassel's</code> click function.
+        </li>
+</section>
+
+<section class="slide">
+    <h2>Styling the Tassel and Sign Interaction</h2>
+    <p>We are so very close. If only we could pull that tassel and stuff...</p>
+    <ul>
+        <li class="slide">Style the loaded state of the tassel, drop it in from the top:
+<pre><code data-language="css">.loaded #tassel {
+  bottom: 30%;
+  transition-delay: 1s;
+  transition-duration: 3s;
+}</code></pre>
+        </li>
+        <li class="slide">
+            Now for swinging and pulling:
+<pre><code data-language="css">#tassel:hover {
+  bottom: 20%;
+  animation: stop ease-in 1s; //stop the swinging
+}
+
+@keyframes stop {
+  100% { transform: rotateZ(0deg);}
+}
+
+#tassel:active, #tassel:focus {
+  bottom: 10%;
+}
+
+#tassel.pulled  {
+  transform: rotateZ(0deg);
+  transition: bottom 4s, transform 2s;
+  bottom: 100%;
+}</code></pre>            
+        </li>
+    </ul>
+</section>
+
+<section class="slide">
+    <h2>Styling the sign interaction</h2>
+    <p>The sign should drop down with a loading indicator that changes once all is loaded.</p>
+    <ul>
+        <li class="slide">
+            When all things are loaded, change the sign's text.
+            <pre><code data-language="js">$("#sign").find(".wrap").html("<h1>Please enjoy</h1>");</code></pre>
+        </li>
+        <li class="slide">Pull the sign up off screen:
+            <pre><code data-language="css">.loaded #sign {
+  margin-top: -100%;
+}</code></pre></li>
+</section>
+
+<section class="slide">
+    <h2>Finishing Touch</h2>
+    <p>LASTLY! When everything is ready to play, play a chime from the opening to <a href="http://www.youtube.com/watch?v=NLy4cvRx7Vc">Kyary's other song about eyelashes</a>.</p>
+    <ul>
+        <li class="slide">
+            Let's use real HTML5 audio markup for a change.
+            <pre><code data-language="html"><audio id="chime">
+   <source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
+   <source src="music/chime.ogg" type='audio/ogg; codecs="vorbis"'>
+</audio></code></pre>
+        </li>
+        <li class="slide">And use real JS to kick that sucker off in the <code>loaded</code> state:
+            <pre><code data-language="js">document.getElementById('chime').play();</code></pre></li>
+        <li class="slide">Hardcore.</li>
+</section>
+
+
+<section class="slide">
+    <h1>Just the Beginning!</h1>
+    <p>With these skills, you can build nifty things like this.</p>
+    <p>Part II is coming in Spring. Follow me on Twitter to keep up with the cool new things I'm uncovering.</p>
+    <p>Find these slides at short URL</p>
+    <p>Rate me at</p>
+    <p>RachelNabors.com @CrowChick</p>
+    <p>Also, COME DRAW WITH US!</p>
+</section>
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+    <label for="goto-slide">Go to slide:</label>
+    <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+    <datalist id="goto-datalist"></datalist>
+    <input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+<script src="extensions/pointer/deck.pointer.js"></script>
+<script src="extensions/syntaxhighlighter/deck.syntaxhighlighter.js"></script>
+<script src="extensions/iframes/deck.iframes.js"></script>
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+    $(function() {
+        $.deck('.slide');
+        $.deck('iframes');
+    });
+</script>
+</body>
+</html>

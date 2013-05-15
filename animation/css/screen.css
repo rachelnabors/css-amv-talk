@@ -1,0 +1,313 @@
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}
+
+body {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  color: #666;
+}
+
+h1 {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 3em;
+  margin: 1em 0 0 0;
+  color: #444;
+}
+
+.midground .tuna {
+  animation-fill-mode: forwards;
+  background: url(../img/tuna_sprite.png) 0 0 no-repeat; 
+  width: 400px; height: 200px;
+  margin-left: -800px; /* offset half the width to center */
+  position: absolute;
+  bottom: 183px; left: 50%;
+  opacity: 1;
+  transform: scaleX(-1);
+  transition: 
+    margin-left 4s linear,
+    opacity .1s linear 10.5s;
+}
+
+@keyframes walk-cycle {  
+  0% {background-position: 0 0; } 
+  100% {background-position: 0 -2400px; } 
+}
+
+@keyframes sit-down {  
+  0% { background-position: -400px 0; } 
+  100% {background-position: -400px -1000px; } 
+}
+
+@keyframes typing {
+  0% { background-position: -400px -1000px; } 
+  100% {background-position: -400px -1400px; } 
+}
+
+.playing .midground .tuna { 
+  animation: 
+    walk-cycle 1s steps(12) 4, 
+    sit-down .5s steps(5) 4s 1,
+    typing .5s steps(2) 4.5s infinite;
+  margin-left: -300px; 
+  opacity: 0;
+}
+
+#laptop {
+  position: absolute;
+  bottom: 183px; left: 50%;
+  margin-left: -125px;
+}
+
+
+/* The 3D room */
+.level, .stage {
+  position: absolute;
+  width: 100%; height: 100%;
+}
+
+.foreground { z-index: 3;}
+.midground { z-index: 2; }
+.background { z-index: 1; }
+
+#stage1 { perspective: 300px; }
+
+.wall {
+  opacity: 0;
+  background: linear-gradient(30deg, #fff 30%, #ddd);
+  position: absolute;
+  top: 0;
+  width: 400px; height: 100%;
+  transition: transform 1s 7.5s, opacity 1s 7.5s;
+}
+.playing .wall {opacity: 1;}
+
+#rightWall { right: 0; }
+.playing #rightWall { transform: rotateY(90deg) translateZ(200px) }
+
+#leftWall { left: 0;}
+.playing #leftWall { transform: rotateY(-90deg) translateZ(200px); }
+
+#backWall { width: 100%; height: 100%; }
+.playing #backWall { transform: translateZ(-200px); }
+
+
+/* The Sound Stage */
+.equipment { /* Base styles for all equipment */
+  position: absolute;
+  left: 50%;
+}
+
+#left-floor-monitor {
+  background: url(../img/sprite_equip_monitor_left.png) 0 0 no-repeat;
+  bottom: 46px; 
+  margin-left: -862px;
+  width: 1054px; height: 303px;
+}
+
+#right-floor-monitor {
+  background: url(../img/sprite_equip_monitor_right.png) 0 0 no-repeat;
+  bottom: 13px; 
+  margin-left: 144px;
+  width: 482px; height: 346px;
+}
+
+#mixer {
+  background: url(../img/sprite_equip_mixer.png) 0 0 no-repeat;
+  bottom: 219px; 
+  margin-left: -298px;
+  width: 612px; height: 462px;
+  z-index: 3;
+}
+
+.speakers {
+  bottom: 350px;
+  z-index: 2;  
+}
+
+#left-speaker {
+  margin-left: 104px;
+}
+
+#right-speaker { margin-left: -496px; }
+
+@keyframes throb {
+  0% { transform: scale(0.98); }
+  100% { transform: scale(1); } 
+}
+
+@keyframes left-speaker-scoot {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -606px; } 
+}
+
+@keyframes right-speaker-fiddle {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -692px; } 
+}
+
+@keyframes mixer-nudge {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -462px; } 
+}
+
+.playing #left-floor-monitor {
+  animation: left-speaker-scoot .5s steps(2) 11.1s forwards;
+  transition: opacity .01s linear 11s;
+}
+
+.playing #right-floor-monitor {
+  animation: right-speaker-fiddle .5s steps(2) 11.51s forwards;
+  transition: opacity .01s linear 11.5s;
+}
+
+.playing #mixer {
+  margin-left: -294px;
+  transition: 
+    margin-left .3s linear 12.01s,
+    opacity .01s linear 12s;
+  animation: mixer-nudge .4s steps(1) 12.01s forwards;
+}
+
+@keyframes mixer-nudge {
+  0% { 
+    background-position: 0 0; 
+  }
+  100% { 
+    background-position: 0 -462px; 
+  } 
+}
+
+.playing .speakers { 
+  bottom: 300px; 
+  transition: 
+    opacity .5s linear 13s,
+    bottom .5s linear 13s;
+  animation: throb .5s linear 14.75s infinite;
+}
+
+/* Tuna the DJ */
+.background .tuna {
+  background: url('http://stash.rachelnabors.com/img/codepen/sprite_tuna_boss.png?1') 0 0 no-repeat;
+  position: absolute;
+  left: 50%; bottom: 400px;
+  margin-left: -33px;
+  z-index: 2;
+  height: 200px;
+  width: 75px;
+}
+.playing .background .tuna .expression {
+  animation: smirk .3s steps(1, start) 13.5s 1 forwards;
+  background: url('http://stash.rachelnabors.com/img/codepen/sprite_tuna_boss.png?1') 0 -252px no-repeat;
+  position: absolute;
+  top: 44px; left: 19px;
+  width: 44px; height: 26px;
+  z-index: 2;
+}
+
+@keyframes smirk {
+  0% { background-position: 0 -252px; }
+  33% { background-position: 0 -252px; }
+  66% { background-position: 0 -200px; }
+  100% { background-position: 0 -226px; } /* shows nothing */
+}
+
+.playing .background .tuna {
+  bottom: 615px;
+  transition: 
+    bottom 1s linear 12.02s,
+    opacity .01s linear 12.5s;
+}
+
+
+/* Hide-n-show */
+.equipment, .background .tuna {
+  opacity: 0;
+}
+
+.playing .equipment, .playing .background .tuna {
+  opacity: 1;
+}
+
+
+/* Loading */
+.loading .stage, .loaded .stage { opacity: 0; }
+.loading #curtains, .loaded #curtains { opacity: 1; }
+.playing .stage {  opacity: 1 }
+
+#curtains {
+background:
+  linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent 75%), 
+  linear-gradient(91deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, #666666 35%, #595959 40%, #4d4d4d 43%, #999999 50%, #ababab 55%, #a6a6a6 60%, #999999 65%, #737373 70%, #595959 75%, rgba(153, 153, 153, 0) 80%, rgba(153, 153, 153, 0)), 
+  linear-gradient(88deg, #595959, #737373 20%, #8c8c8c 25%, #999999 40%, #808080 50%, #737373 70%, #666666 80%, #595959 90%, #4d4d4d);
+background-size: auto, 300px 100%, 109px 100%;
+  box-shadow: 0px 10px 100px 10px rgba(42, 41, 51, 1);
+  transition: top 2s ease-in;
+  z-index: 3;
+}
+
+.playing #curtains {
+  top: -120%;
+}
+
+#tassel {
+  animation: swing linear 4s infinite alternate;
+  transition: bottom 1s;
+  transform-origin: center -20px 0;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(8px 8px 20px #000); /* Chrome only, sorry! Is funny w/ transforms. FEATURE not a BUG?! */
+  position: absolute;
+  bottom: 100%;
+  right: 20%;
+  height: 100%; //so it looks nice in tinier browsers
+  max-height: 1049px; //so we don't scale up in the largest browsers
+}
+
+@keyframes swing {
+  0% { transform: rotateZ(1deg); }
+  100% { transform: rotateZ(-1deg); }
+}
+
+#sign {
+  background: url(img/sign.svg) 0 0 no-repeat;
+  background-size: 100% 100%;
+  padding: 2em 1em 1em;
+  position: absolute;
+  left: 50%;
+  margin-top: 10em;
+  margin-left: -9.5em;
+  text-align: center;
+  transform: rotateZ(1deg);
+  transition: margin-top 4s linear;
+  width: 19em;
+  height: 13em;
+  z-index: 120;
+}
+
+/* Loaded */
+.loaded #sign {
+  margin-top: -200%;  
+}
+
+.loaded #tassel {
+  bottom: 30%;
+  transition-delay: 1s;
+  transition-duration: 3s;
+}
+
+#tassel:hover {
+  bottom: 20%;
+  animation: stop ease-in 1s; //stop the swinging
+}
+
+@keyframes stop {
+  100% { transform: rotateZ(0deg);}
+}
+
+#tassel:active, #tassel:focus {
+  bottom: 10%;
+}
+
+#tassel.pulled  {
+  transform: rotateZ(0deg);
+  transition: bottom 4s, transform 2s;
+  bottom: 100%;
+}

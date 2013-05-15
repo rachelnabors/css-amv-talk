@@ -1,0 +1,67 @@
+// ---------------------------------------------------------------------------
+// Imports
+
+@import "susy";
+
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns  : 6;
+$column-width   : 398px;
+$gutter-width   : 20px;
+$grid-padding   : 20px;
+
+//$show-grid-backgrounds  : true;
+
+$col2: 2 (800/16)*1em;// Use 2 cols under 800px.
+$col1: 1 (533/16)*1em;// Use 1 cols under 533px.
+
+
+//bleed mixin http://stackoverflow.com/questions/11223927/susy-how-to-extend-content-box-to-cover-grid-padding-as-well
+@mixin bleed($padding: $grid-padding, $sides: left right) {
+  @if $sides == 'all' {
+    margin: - $padding;
+    padding: $padding;
+  } @else {
+    @each $side in $sides {
+      margin-#{$side}: - $padding;
+      padding-#{$side}: $padding;
+    }
+  }
+}
+
+/* -------------------------------------------------------------------------*/
+/* Layout */
+
+.wrapper {
+	@include container;
+	//@include susy-grid-background;
+  max-width: 1214px;
+  @include at-breakpoint($col2) {
+    @include container;
+  }
+  @include at-breakpoint($col1) {
+    @include container;
+  }
+}
+#storyboard > li {
+	@include span-columns(2,6);
+	&:nth-child(3n) { @include omega; }
+	img { max-width: 100%;}
+  @include at-breakpoint($col2) {
+    @include span-columns(1,2);
+    &:nth-child(3n) { @include remove-omega; }
+    &:nth-child(2n) { @include omega; }
+  }
+  @include at-breakpoint($col1) {
+    @include span-columns(1,1);
+    &:nth-child(2n) { @include remove-omega; }
+  }
+}
+
+h2 {
+  @include span-columns(4,6);
+  @include at-breakpoint($col2) {
+      @include span-columns(2,2);       
+  }
+}
