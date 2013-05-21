@@ -267,7 +267,7 @@ background-size: auto, 300px 100%, 109px 100%;
 }
 
 #sign {
-  background: url(img/sign.svg) 0 0 no-repeat;
+  background: url(../img/sign.svg) 0 0 no-repeat;
   background-size: 100% 100%;
   padding: 2em 1em 1em;
   position: absolute;
