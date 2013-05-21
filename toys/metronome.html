@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Tick Tock</title>
+  
+  </head>
+<body>
+  
+<audio loop>
+   <source src="music/tick-tock.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+
+<script>
+
+//start music and timer at same time.
+
+//know and keep the beat.
+
+var audio = document.getElementsByTagName('audio')[0];
+
+//timer from http://www.sitepoint.com/creating-accurate-timers-in-javascript/
+var start = new Date().getTime(), //get a fresh timestamp
+    time = 0, // the time now?
+    elapsed = '0.0'; // the time that has elapsed since timestamp
+
+
+	function instance() {
+	    time += 100; //add 1 sec to the time
+	    elapsed = Math.floor(time / 100) / 10; // .floor gets the nearest lower whole number. So, the elapsed time is time / 100 (seconds) divided by 10!
+	    //if(Math.round(elapsed) == elapsed) { elapsed += '.0'; } // if elapsed is 100% dead accurate, give it a .0
+	  
+	  //console.log(elapsed);
+	  if (elapsed === 5) {
+	    console.log("Fivers");
+	  }
+	    
+	  //now let's compare...
+	    var diff = (new Date().getTime() - start) - time; //get a new time, subtract our old timestamp, and subtract "time" from above.
+	  
+	    window.setTimeout(instance, (100 - diff)); // 
+
+    	function updateTime() {
+			if ((elapsed)%2) == 0) {
+				console.log("tick")
+			} 
+		}
+
+		updateTime();
+
+	}
+
+	var theBeat = {
+
+	}
+
+	// var isEven = function(someNumber){
+ // 	   return ((Math.floor(someNumber))%2 == 0) ? true : false;
+	// }
+
+	window.setTimeout(instance, 100);
+
+
+</script>
+
+</body>
+</html>
+  
+

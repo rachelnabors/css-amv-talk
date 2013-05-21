@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Tick Tock</title>
+  
+  </head>
+<body>
+  
+<!-- <audio autoplay id="audio1">
+   <source src="music/tick-tock.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+
+<audio id="audio2">
+   <source src="music/tick-tock.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+ -->
+
+<script type="text/javascript" src="js/seamlessLoop.js"></script>
+
+<script>
+
+//start music and timer at same time.
+
+//know and keep the beat.
+
+var audio1 = document.getElementById('audio1');
+var audio2 = document.getElementsByTagName('audio')[1];
+
+// audio.addEventListener('timeupdate', function() {
+//   console.log(this.currentTime);
+// }, false);
+
+// audio.addEventListener('ended', function(){
+// 	this.currentTime = 0;
+// 	this.play();
+// }, false);
+
+//make a seamless loop
+var loop = new SeamlessLoop();
+loop.addUri("music/tick-tock.mp3", 1070, "sound1");
+loop.addUri("music/tick-tock.mp3", 1070, "sound2");
+
+loop.callback(soundsLoaded);
+
+function soundsLoaded() {
+	var n = 1;
+	loop.start("sound" + n);
+	n++;
+	loop.update("sound" + n, false);
+	//loop.stop();
+};
+
+</script>
+
+</body>
+</html>
+  
+

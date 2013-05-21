@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>It's curtains for you!</title>
+  
+  <link rel="stylesheet" href="css/curtains.css" type="text/css" />
+  <script src="js/prefixfree.1.0.7.min.js"></script>
+</head>
+<body>
+  
+  <div id="curtains">
+    <img src="img/tassle.png" id="tassel" />
+  </div>
+
+  <div id="stage">
+    <div class="tuna"></div><!--Tuna goes in the foreground-->
+    <a href="http://cssdevconf.com/"><img src="img/css-dev-conf_logo.png" class="cdc_logo" /></a>
+    <p class="tagline">He's coming.</p><!--Who is he? Why, Tuna Prince of Cats, of course! Or Tuna P. Katz...-->
+    <img src="img/plane.png" class="plane" />
+  </div>
+
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+  </script>
+  <script type="text/javascript">
+    // Let's kick this off. Can't believe I needed the entire jQuery library because I didn't want to dick with handling click/addClass events cross browser. Is there a more succint path? Point it out to me on Twitter @CrowChick
+    $(document).ready(function() {
+      $("#tassel").click(function(){
+        $(this).addClass("pulled");
+        $("#curtains").addClass("raised");
+        $("#stage").addClass("on-stage");
+      });
+    });
+
+  </script>
+
+</body>
+</html>
+  
+

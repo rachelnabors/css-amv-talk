@@ -1,0 +1,192 @@
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}
+
+/* Cicadients */
+#curtains {
+	background:
+		linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent 75%), 
+		linear-gradient(91deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, #666666 35%, #595959 40%, #4d4d4d 43%, #999999 50%, #ababab 55%, #a6a6a6 60%, #999999 65%, #737373 70%, #595959 75%, rgba(153, 153, 153, 0) 80%, rgba(153, 153, 153, 0)), 
+		linear-gradient(88deg, #595959, #737373 20%, #8c8c8c 25%, #999999 40%, #808080 50%, #737373 70%, #666666 80%, #595959 90%, #4d4d4d);
+	background-size: auto, 300px 100%, 109px 100%;
+  box-shadow: 0px 10px 100px 10px rgba(42, 41, 51, 1);
+	position: absolute;
+  top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+  z-index: 100;
+  transition: top 3s ease-in;
+}
+
+#curtains.raised {
+  top: -120%;
+}
+
+/* 	Key frames: 
+		Example: http://jsfiddle.net/codepo8/MXq9x/
+	Transitions:
+		Guide: http://www.adobe.com/devnet/html5/articles/using-css3-transitions-a-comprehensive-guide.html 
+		Cool Example: http://designshack.net/articles/css/css-active-tutorial/
+*/
+
+#tassel {
+  animation: swing linear 4s infinite;
+  transition: bottom 1s;
+  transform-origin: center -20px 0;
+  cursor: pointer;
+  -webkit-filter: drop-shadow(8px 8px 20px #000); /* Chrome only, sorry! Is funny w/ transforms. FEATURE not a BUG?! */
+  position: absolute;
+  bottom: 100%;
+  right: 20%;
+  height: 100%; //so it looks nice in tinier browsers
+  max-height: 1049px; //so we don't scale up in the largest browsers
+}
+
+.loaded #tassel {
+  bottom: 30%;
+  transition-delay: 1s;
+  transition-duration: 3s;
+}
+
+.loaded #sign {
+  margin-top: -100%;
+}
+
+#tassel:hover {
+  animation: stop ease-in 1s;
+  bottom: 20%;
+}
+
+#tassel:active, #tassel:focus {
+  bottom: 10%;
+}
+
+#tassel.pulled {
+  animation: stop ease-in 1s; //stop the swinging
+  transition: bottom 4s;
+  bottom: 100%;
+}
+
+/* Use 3d transform rotateZ instead of rotate to key in on hardware acceleration in webkit--prolly fails in FF*/
+@keyframes swing {
+  0% { transform: rotateZ(0deg); }
+  25% { transform: rotateZ(1deg); }
+  50% { transform: rotateZ(0deg); }
+  75% { transform: rotateZ(-1deg); }
+  100% { transform: rotateZ(0deg); }
+}
+
+@keyframes stop {
+  transform: rotateZ(0deg);
+}
+
+#stage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#sign {
+  background: #ccc;
+  border: 3px solid #444;
+  margin: 300px auto 0;
+  padding: 1em;
+  position: relative;
+  text-align: center;
+  transform: rotateZ(1deg);
+  transition: margin-top 8s linear;
+  width: 40%;
+  z-index: 120;
+}
+
+#sign .wrap {
+  background: #fff;
+  border: 2px solid #666;
+  min-height: 7em;
+}
+
+#sign:before, #sign:after {
+  content: " ";
+  width: 3px;
+  height: 310px;
+  background: #000;
+  position: absolute;
+  left: 1em;
+  top: -310px;
+  z-index: 101;
+}
+
+#sign:after {
+  left: auto;
+  right: 1em;
+}
+
+.tuna {
+  animation: walk-cycle 1s steps(11, end) infinite;
+  background: url(http://www.rachelnabors.com/animation/toys/img/tuna-walking_sprite.png) 0 0 no-repeat; 
+  height: 200px;
+  width: 400px;
+  margin: 100px auto 0;
+}
+
+@keyframes walk-cycle {  
+  0% {background-position: 0 0; } 
+  100% {background-position: 0 100%; } 
+}
+
+/*.plane {
+  margin-left: -780px;
+  opacity: .3;
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  z-index: 1;
+}
+
+.on-stage .plane {
+  animation: 8s descend ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes descend {
+  100% {
+    margin-left: -300px;
+    top: 50px;
+  }
+}
+
+.cdc_logo {
+  display: block;
+  opacity: 0;
+  margin: 20px auto;
+  width: 200px;
+  transition: opacity ease 2s;
+  transition-delay: 3s;
+}
+
+.tagline {
+  color: #8c0619;
+  opacity: 0;
+  text-align: center;
+  transition: opacity ease 1s;
+  transition-delay: 4s;
+}
+
+.on-stage .cdc_logo, .on-stage .tagline {
+  opacity: 1;
+}
+
+.tuna {
+  animation: 2s wiggle-tail steps(4, end) infinite;
+  background: url(../img/tuna-waiting_sprite.png) 100% 0 no-repeat; 
+  height: 265px;
+  width: 300px;
+  margin: 400px auto 0;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes wiggle-tail{  
+  0% {background-position: 0 100%; } 
+  50% {background-position: 0 0; }
+  100% {background-position: 0 100%; } 
+}*/

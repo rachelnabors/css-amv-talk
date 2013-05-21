@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Loading Loading Loading</title>
+
+  <link rel="stylesheet" href="css/walking.css?6" type="text/css" />
+  <script src="js/prefixfree.1.0.7.min.js"></script>
+  
+</head>
+<body class="loading">
+
+<div id="curtains">
+	<div id="sign">
+		<div class="wrap">
+			<h1>Loading</h1>
+			<p>Please adjust your audio :)</p>
+		</div>
+	</div>
+	<img src="img/tassle.png" id="tassel" />
+</div>
+
+<div id="stage1">
+	<div id="tuna"></div>
+	<img id="laptop" src="img/laptop.png" height="143" width="250" />
+	<div class="wall" id="leftWall"></div>
+	<div class="wall" id="rightWall"></div>
+</div>
+
+
+<audio id="chime">
+   <source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+  
+<audio id="candy1">
+   <source src="music/candy-candy_mother.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined') {
+	    document.write(unescape("%3Cscript src='js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+
+<script>
+
+//jQuery's .load() when set on window will wait for all text and images before running
+$(window).load(function(){
+	//the assets are loaded! Call off the timeout function above!
+	var assetsLoaded = true;
+	var song = $('#candy1');
+
+	// Wait till the music loads (or get a nasty error!)
+	song.on('canplay canplaythrough', function(){
+		// play a chime
+		setTimeout(function(){ 
+			// change the body class to indicate state + kick off CSS transitions
+			$("body").removeClass("loading").addClass("loaded");
+
+			document.getElementById('chime').play();
+
+			$("#sign").find(".wrap").html("<h1>Please enjoy</h1>");
+
+			$("#tassel").click(function(){
+				$(this).addClass("pulled");
+				$("body").addClass("playing");
+				$("#stage").addClass("on-stage");
+
+				// Aaaaand here's where it all starts. Better put this in a function. It's gonna get ropey!
+				// play music
+				// this doesn't work w/ jQuery selectors cuz it's not a jQuery function: 
+				// http://stackoverflow.com/questions/4646998/play-pause-html-5-video-using-jquery
+				$('#candy1').get(0).play(); // we use get(0) to grabe the DOM node
+				
+				//give
+				$("#tuna").addClass("walking");
+				$("body").addClass("playing");
+			});
+
+		},1000);
+	});
+});
+// in case it doesn't all load, have this timeout running.
+setTimeout(function(){ 
+	if(!assetsLoaded) {
+		//if the assets don't load in time, do this
+		alert("Sorry for the sluggishness! We have a team of cats on caffeine working on it right now.");
+	} 
+},20000);
+
+
+
+
+</script>
+
+</body>
+</html>
+  
+

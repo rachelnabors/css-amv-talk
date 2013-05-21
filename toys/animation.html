@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  
+  <title>Loading Loading Loading</title>
+
+  <link rel="stylesheet" href="css/animation.css" type="text/css" />
+  <script src="js/prefixfree.1.0.7.min.js"></script>
+  
+</head>
+<body class="loading">
+
+<!-- <div id="curtains">
+	<div id="sign">
+		<div class="wrap">
+			<h1>Loading</h1>
+			<p>Please adjust your audio :)</p>
+		</div>
+	</div>
+	<img src="img/tassle.png" id="tassel" />
+</div> -->
+
+<div id="stage1">
+
+	<div class="equipment" id="left-floor-monitor"></div>
+	<div class="equipment" id="right-floor-monitor"></div>
+
+	<div class="tuna walking"></div>
+	<img id="laptop" src="img/laptop.png" height="143" width="250" />
+
+	<div class="equipment" id="mixer"></div>
+	<div class="tuna boss">
+		<div class="expression"></div>
+	</div>
+	<img class="equipment speakers" id="right-speaker" src="img/equip_speaker.png" />
+	<img class="equipment speakers" id="left-speaker" src="img/equip_speaker.png" />
+
+	<div class="wall" id="leftWall"></div>
+	<div class="wall" id="rightWall"></div>
+	<div class="wall" id="backWall"></div>
+</div>
+
+
+<audio id="chime">
+   <source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+  
+<audio id="candy1">
+   <source src="music/candy-candy_mother.mp3" type='audio/mpeg; codecs="mp3"'>
+</audio>
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined') {
+	    document.write(unescape("%3Cscript src='js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+
+<script>
+
+//jQuery's .load() when set on window will wait for all text and images before running
+$(window).load(function(){
+
+	$('#candy1').get(0).play(); // we use get(0) to grab the DOM node
+
+	//give
+	$("#tuna").addClass("walking");
+	$("body").addClass("playing");
+
+
+});
+
+
+
+
+</script>
+ 
+</body>
+</html>
+  
+
