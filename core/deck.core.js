@@ -473,26 +473,26 @@ that use the API provided by core.
 	transform.  Blanking the src when a previously shown slide goes out
 	of view prevents this.
 	*/
-	$d.bind('deck.change', function(e, from, to) {
-		var oldFrames = $[deck]('getSlide', from).find('iframe'),
-		newFrames = $[deck]('getSlide', to).find('iframe');
+	// $d.bind('deck.change', function(e, from, to) {
+	// 	var oldFrames = $[deck]('getSlide', from).find('iframe'),
+	// 	newFrames = $[deck]('getSlide', to).find('iframe');
 		
-		oldFrames.each(function() {
-	    	var $this = $(this),
-	    	curSrc = $this.attr('src');
+	// 	oldFrames.each(function() {
+	//     	var $this = $(this),
+	//     	curSrc = $this.attr('src');
             
-            if(curSrc) {
-            	$this.data('deck-src', curSrc).attr('src', '');
-            }
-		});
+ //            if(curSrc) {
+ //            	$this.data('deck-src', curSrc).attr('src', '');
+ //            }
+	// 	});
 		
-		newFrames.each(function() {
-			var $this = $(this),
-			originalSrc = $this.data('deck-src');
+	// 	newFrames.each(function() {
+	// 		var $this = $(this),
+	// 		originalSrc = $this.data('deck-src');
 			
-			if (originalSrc) {
-				$this.attr('src', originalSrc);
-			}
-		});
-	});
+	// 		if (originalSrc) {
+	// 			$this.attr('src', originalSrc);
+	// 		}
+	// 	});
+	// });
 })(jQuery, 'deck', document);
