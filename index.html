@@ -40,7 +40,7 @@
             <h1>Animated Music Videos</h1>
             <h2>with CSS3 Animations and HTML5 Audio</h2>
         </hgroup>
-        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/crowchick">@CrowChick</a></p>
+        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
         <p>Follow along at <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
         <img src="img/bg_no-flash.png" alt="No Flash Allowed">
     </div>
@@ -152,7 +152,7 @@
 <section class="slide">
     <h2>The Walk Cycle</h2>
     <p>A walk cycle is the &ldquo;Hello, world!&rdquo; of animation.</p>
-    <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="CrowChick"><code></code></pre>
+    <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script>
     <ul>
         <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://www.rachelnabors.com/animation/candyHalo1/toys/img/tuna-walking_sprite.png">sprite</a>)</li>
@@ -172,7 +172,7 @@
 <section class="slide">
     <h2>Flicking Steps: How do they work?</h2>
     <p>Steps are magical and <a href="https://developer.mozilla.org/en-US/docs/CSS/timing-function#The_steps()_class_of_timing-functions">poorly documented</a>.</p>
-    <pre class="codepen" data-height="300" data-type="result" data-href="zeFqy" data-user="CrowChick" data-safe="true"><code></code></pre>
+    <pre class="codepen" data-height="300" data-type="result" data-href="zeFqy" data-user="rachelnabors" data-safe="true"><code></code></pre>
     <script async src="http://codepen.io/assets/embed/ei.js"></script>
     <ul>
         <li class="slide">A step divides the animation's states equally into your defined number of snapshots</li>
@@ -187,16 +187,16 @@
     <ul>
         <li class="slide">13 seconds in, Tuna smirks.</li>
         <li class="slide"><a href="animation/img/sprite_tuna_boss.png">Check out this sprite.</a></li>
-        <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="CrowChick"><code></code></pre>
+        <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></li>
-        <li class="slide"><a href="http://codepen.io/CrowChick/pen/BIhvs">We could use animations on pseudo elements instead <code>.expression</code></a>, but only FireFox supported them until recently.</li>
+        <li class="slide"><a href="http://codepen.io/rachelnabors/pen/BIhvs">We could use animations on pseudo elements instead <code>.expression</code></a>, but only FireFox supported them until recently.</li>
     </ul>
 </section>
 
 <section class="slide">
     <h2>Making things move with Transitions</h2>
     <p>Never use JavaScript where a transition will suffice.</p>
-    <pre class="codepen" data-height="300" data-type="result" data-href="nbagz" data-user="CrowChick" data-safe="true"><code></code></pre>
+    <pre class="codepen" data-height="300" data-type="result" data-href="nbagz" data-user="rachelnabors" data-safe="true"><code></code></pre>
 </section>
 
 <section class="slide">
@@ -225,7 +225,7 @@
     <h2>Timing Animations with Delays</h2>
     <p>We need to make Tuna sit down exactly 4 seconds in.</p>
     <p class="slide">We can do this with <code>animation-delay</code> and a second animation.</p>
-    <div class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="lIviK" data-user="CrowChick"><code></code></pre>
+    <div class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="lIviK" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></div>
     <ul>
         <li class="slide"><code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; <strong>&lt;animation-delay&gt;</strong> &lt;iteration-count&gt;;</code></li>
@@ -285,7 +285,7 @@
             <p class="slide">Great for multi-stage animations</p>
         </li>
         <li class="slide">Using <code>animation-play-state: paused/running;</code>
-            <pre class="codepen" data-height="300" data-type="result" data-href="rCost" data-user="CrowChick" data-safe="true"><code></code></pre>
+            <pre class="codepen" data-height="300" data-type="result" data-href="rCost" data-user="rachelnabors" data-safe="true"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script>
             <p class="slide">Great for simple &ldquo;single-stage&rdquo; or granular animation.</p>
         </li>
@@ -334,14 +334,13 @@
     <h2>HTML5 Audio is not what it should be</h2>
     <ul>
         <li class="slide">Originally I just wanted to add an <code>&lt;audio&gt;</code> element and set it to loop.</li>
-        <li class="slide">But HTML5 audio's native looping method leaves gaps, <a href="http://codepen.io/CrowChick/pen/gcump">as you can hear</a>.</li>
-        <li class="slide">Web Audio API could help, but is overkill for this project.</li>
+        <li class="slide">But HTML5 audio's native looping method leaves gaps, <a href="http://codepen.io/rachelnabors/pen/gcump">as you can hear</a>.</li>
         <li class="slide"><a href="https://github.com/Hivenfour/SeamlessLoop">SeamlessLoop.js</a> helps us overcome the gaps.</li>
-        <li class="slide">CURSE YOU, HTML5 AUDIO IMPLEMENTATIONS! This should be elegant!</li>
+        <li class="slide">Web Audio API is the definitive answer, but is overkill for this project.</li>
     </ul>
 </section>
 
-<section class="slide">
+<!-- <section class="slide">
     <h2>SeamlessLoop.js up close</h2>
     <ul>
         <li class="slide">Create new SeamlessLoop object
@@ -374,11 +373,11 @@ if (canPlayMP3===true) {
     We can totally use this as a check for asset loading.</li>
 </ul>
 </section>
-
+ -->
 <section class="slide">
     <h1>Just the Beginning!</h1>
     <p>With these skills, you can build all kinds of nifty interactions, like <a href="http://cdpn.io/lqswg">this</a>.</p>
-    <p><a href="https://twitter.com/crowchick">Follow me on Twitter @CrowChick</a> to keep up with the cool new things I'm uncovering.</p>
+    <p><a href="https://twitter.com/rachelnabors">Follow me on Twitter @rachelnabors</a> to keep up with the cool new things I'm uncovering.</p>
     <p>Slides: <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
     <p>Animation links and insights: <a href="http://rachelcoding.tumblr.com/">rachelcoding.tumblr.com</a></p>
 </section>
