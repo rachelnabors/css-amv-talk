@@ -311,17 +311,16 @@
 <section class="slide">
     <h2>The Loaded Chime</h2>
     <p>When everything is ready to play, play a chime from the opening to <a href="http://www.youtube.com/watch?v=NLy4cvRx7Vc">Kyary's other song about eyelashes</a>.</p>
-    <ul>
-        <li class="slide">
-            Let's use real HTML5 audio markup.
-            <pre><code data-language="html"><audio id="chime">
-   <source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
-   <source src="music/chime.ogg" type='audio/ogg; codecs="vorbis"'>
+    <div class="slide">
+        Let's use real HTML5 audio markup.
+        <pre><code data-language="html"><audio id="chime">
+<source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
+<source src="music/chime.ogg" type='audio/ogg; codecs="vorbis"'>
 </audio></code></pre>
-        </li>
-        <li class="slide">And use real JS to kick the music off in the <code>loaded</code> state:
-            <pre><code data-language="js">document.getElementById('chime').play();</code></pre></li>
-        <li class="slide">Hardcore.</li>
+    </div>
+    <div class="slide">And use real JS to kick the music off in the <code>loaded</code> state:
+        <pre><code data-language="js">document.getElementById('chime').play();</code></pre>
+    </p>
 </section>
 
 <section class="slide">
