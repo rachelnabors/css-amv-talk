@@ -79,8 +79,8 @@
     <ul>
         <li>We're using Chrome, but these animations will work in all recent browsers except IE9.</li>
         <li>Using <a href="http://leaverou.github.com/prefixfree/">-prefix-free</a> instead of adding vendor prefixes.</li>
-        <li>Using jQuery because everyone knows jQuery.</li>
-    </ul>
+<!--         <li>Using jQuery because everyone knows jQuery.</li>
+ -->    </ul>
 </section>
 
 <section class="slide">
@@ -177,7 +177,7 @@
     <ul>
         <li class="slide">A step divides the animation's states equally into your defined number of snapshots</li>
         <li class="slide">Then it hops between each snapshot</code>
-        <li class="slide">Then it eats the last one by default. (<a href="http://software.hixie.ch/utilities/js/live-dom-viewer/?saved=1993">Tab Atkins explains why this is so better than I.</a></li>
+        <li class="slide">Then it eats the last one by default. (<a href="http://software.hixie.ch/utilities/js/live-dom-viewer/?saved=1993">Tab Atkins explains why this is so better than I.</a>)</li>
     </ul>
 </section>
 
@@ -189,7 +189,6 @@
         <li class="slide"><a href="animation/img/sprite_tuna_boss.png">Check out this sprite.</a></li>
         <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></li>
-        <li class="slide"><a href="http://codepen.io/rachelnabors/pen/BIhvs">We could use animations on pseudo elements instead <code>.expression</code></a>, but only FireFox supported them until recently.</li>
     </ul>
 </section>
 
@@ -216,7 +215,7 @@
         <h3>Transitions</h3>
         <ul>
             <li class="slide"><strong>Single fire</strong> If you only want something to happen once.</li>
-            <li class="slide"><strong>Granularity</strong> If you would only animate one or two properties in a given state</li>
+            <li class="slide"><strong>Granular</strong> If you would only animate one or two properties in a given state</li>
         </ul>
     </div>
 </section>
@@ -262,7 +261,7 @@
     <p>This is one of the few reasons to use JavaScript in this kind of animation.</p>
     <div class="slide">
         <h3>Loaded</h3>
-        <p>Use this inside the <code>$(window).load()</code> event:</p>
+        <p>Swap classes on <code>$(window).load()</code>:</p>
         <pre><code data-language="javascript">$("body").removeClass("loading").addClass("loaded");</code></pre>
     </div>
 
@@ -314,13 +313,13 @@
     <div class="slide">
         Let's use real HTML5 audio markup.
         <pre><code data-language="html"><audio id="chime">
-<source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
-<source src="music/chime.ogg" type='audio/ogg; codecs="vorbis"'>
+    <source src="music/chime.mp3" type='audio/mpeg; codecs="mp3"'>
+    <source src="music/chime.ogg" type='audio/ogg; codecs="vorbis"'>
 </audio></code></pre>
     </div>
     <div class="slide">And use real JS to kick the music off in the <code>loaded</code> state:
         <pre><code data-language="js">document.getElementById('chime').play();</code></pre>
-    </p>
+    </div>
 </section>
 
 <section class="slide">
