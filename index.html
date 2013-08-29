@@ -40,14 +40,25 @@
             <h1>Animated Music Videos</h1>
             <h2>with CSS3 Animations and HTML5 Audio</h2>
         </hgroup>
-        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
-        <p>Follow along at <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
-        <img src="img/bg_no-flash.png" alt="No Flash Allowed">
+        <p><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
+        <p>Follow along at: <br />
+            <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
+        <!-- <img src="img/bg_no-flash.png" alt="No Flash Allowed"> -->
     </div>
     <figure class="self-portrait">
         <img src="img/p_rachelnabors.png" alt="A manga-inspired self-portrait of Rachel, clutching a laptop and looking adorable.">
         <figcaption class="ir">with Rachel the Great (aka Rachel Nabors)</figcaption>
     </figure>
+</section>
+
+<section class="slide">
+  <h2>I am Rachel <del>the Great</del> Nabors</h2>
+  <figure>
+    <img src="img/fig_rachel-tuna.png" alt="Rachel the Great and her talking cat Tuna, waving.">
+    <figcaption>You can still read the comic adventures of Rachel and Tuna at <a href="http://www.rachelthegreat.com" target="_blank">RacheltheGreat.com</a></figcaption>
+  </figure>
+  <!-- commentary
+   Wanted to make cartoons, ended up making JS.-->
 </section>
 
 <section class="slide">
@@ -106,7 +117,7 @@
 
 <section class="slide">
     <h2>Storyboarding</h2>
-    <p>I made a storyboard for us at <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
+    <p>I made a storyboard for us at <a href="storyboard/index.html">RachelNabors.com/css-amv-talk/storyboard</a></p>
     <p><em>(Shoo shoo, go analyze.)</em></p>
     <ul>
         <li class="slide">Storyboards will save you time</li>
@@ -117,7 +128,7 @@
 
 <section class="slide">
     <h2>The Final Product</h2>
-    <p><a href="animation/index.html">This is what it looks like when it all comes together.</a></p>
+    <p><a href="animation/index.html" target="_blank">This is what it looks like when it all comes together.</a></p>
     <p>Let me show you how it's done.</p>
 </section>
 
@@ -164,7 +175,7 @@
     <h2>Sprites: Bundling many states into one</h2>
     <ul>
         <!-- Todo: link -->
-        <li class="slide"><a href="animation/img/tuna_sprite.png">This is the huge sprite</a> we're using in the final animation. Note the 2 portions.</li>
+        <li class="slide"><a href="animation/img/tuna_sprite.png" target="_blank">This is the huge sprite</a> we're using in the final animation. Note the 2 portions.</li>
         <!-- <li class="slide">Sprites are the only way to animate with CSS3 and steps()...</li> -->
     </ul>
 </section>
@@ -186,7 +197,7 @@
     <p>Old technique saves time and reduces unique graphics.</p>
     <ul>
         <li class="slide">13 seconds in, Tuna smirks.</li>
-        <li class="slide"><a href="animation/img/sprite_tuna_boss.png">Check out this sprite.</a></li>
+        <li class="slide"><a href="animation/img/sprite_tuna_boss.png" target="_blank">Check out this sprite.</a></li>
         <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></li>
     </ul>
@@ -284,9 +295,7 @@
             <p class="slide">Great for multi-stage animations</p>
         </li>
         <li class="slide">Using <code>animation-play-state: paused/running;</code>
-            <pre class="codepen" data-height="300" data-type="result" data-href="rCost" data-user="rachelnabors" data-safe="true"><code></code></pre>
-<script async src="http://codepen.io/assets/embed/ei.js"></script>
-            <p class="slide">Great for simple &ldquo;single-stage&rdquo; or granular animation.</p>
+            <p class="slide">Great for <a href="http://cdpn.io/rCost" target="_blank">linear</a>, simple &ldquo;single-stage&rdquo; or granular animation.</p>
         </li>
     </ol>
 </section>
@@ -299,7 +308,7 @@
         <li class="slide">Nor <code>display: block</code> (doesn't work w/ <code>transition</code>)</li>
         <li class="slide">The magic property is <code>opacity</code></li>
         <li class="slide">Use <code>transition-delay</code> to time reveals and hides</li>
-        <li class="slide">It helped, with the sound equipment, to <a href="img/tunas.jpg">start with the final state</a> and gradually hide things.</li>
+        <li class="slide">It helped, with the sound equipment, to <a href="img/tunas.jpg" target="_blank">start with the final state</a> and gradually hide things.</li>
     </ul>
 </section>
 
@@ -338,44 +347,10 @@
     </ul>
 </section>
 
-<!-- <section class="slide">
-    <h2>SeamlessLoop.js up close</h2>
-    <ul>
-        <li class="slide">Create new SeamlessLoop object
-<pre><code data-language="js">var soundtrack = new SeamlessLoop();</code></pre></li>
-        <li class="slide">Check if the browser can play MP3's. If not, use ogg.
-            <pre><code data-language="js">var audio  = document.createElement("audio"),
-canPlayMP3 = (typeof audio.canPlayType === "function" && audio.canPlayType("audio/mpeg") !== "");
-
-if (canPlayMP3===true) {
-  soundtrack.addUri("music/candy-candy_opening.mp3", 16554.8, "opening");
-  soundtrack.addUri("music/candy-candy_loop.mp3", 7395.5, "loop");
-} else {
-  soundtrack.addUri("music/candy-candy_opening.ogg", 16554.8, "opening");
-  soundtrack.addUri("music/candy-candy_loop.ogg", 7395.5, "loop");
-}</code></pre></li>
-</ul>
-</section>
-
-<section class="slide">
-    <h2>SeamlessLoop.js up close</h2>
-    <ul>
-        <li class="slide">Establish your callback function that will be called when all sounds are pre-loaded
-            <pre><code data-language="js">function soundsLoaded() {
-  soundtrack.start("opening"); //start w/ opening
-  soundtrack.update("loop"); //forever update w/ loop
-};</code></pre></li>
-
-<li class="slide">And call it.
-    <pre><code data-language="js">soundtrack.callback(soundsLoaded);</code></pre>
-    We can totally use this as a check for asset loading.</li>
-</ul>
-</section>
- -->
 <section class="slide">
     <h1>Just the Beginning!</h1>
     <p>With these skills, you can build all kinds of nifty interactions, like <a href="http://cdpn.io/lqswg">this</a>.</p>
-    <p><a href="https://twitter.com/rachelnabors">Follow me on Twitter @RachelNabors</a> to keep up with the cool new things I'm uncovering.</p>
+    <p><a href="https://twitter.com/rachelnabors">Follow me on Twitter @RachelNabors</a> and keep an eye on <a href="https://twitter.com/search?q=%23aliceinvideoland&amp;src=typd">#AliceInVideoland</a></p>
     <p>Slides: <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
     <p>More animation goodies at my site: <a href="http://rachelnabors.com/">RachelNabors.com</a></p>
 </section>
@@ -422,7 +397,7 @@ if (canPlayMP3===true) {
 <script src="extensions/pointer/deck.pointer.js"></script>
 <script src="extensions/syntaxhighlighter/deck.syntaxhighlighter.js"></script>
 <script src="extensions/iframes/deck.iframes.js"></script>
-<!-- Initialize the deck. You can put this in an external file if desired. -->
+<!-- Initialize the deck. You can put this in an external file if desired.-->
 <script>
     $(function() {
         $.deck('.slide');
