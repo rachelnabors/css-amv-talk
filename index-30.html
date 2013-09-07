@@ -8,10 +8,10 @@
     <title>Rachel Nabors on Animation Studio Power Techniques with CSS</title>
     
     <!-- Required stylesheet -->
-    <!-- <link rel="stylesheet" href="core/deck.core.css"> -->
+    <link rel="stylesheet" href="core/deck.core.css">
     
     <!-- Extension CSS files go here. Remove or add as needed. -->
-<!--     <link rel="stylesheet" href="extensions/goto/deck.goto.css">
+    <link rel="stylesheet" href="extensions/goto/deck.goto.css">
     <link rel="stylesheet" href="extensions/menu/deck.menu.css">
     <link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
     <link rel="stylesheet" href="extensions/status/deck.status.css">
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="extensions/scale/deck.scale.css">
     <link rel="stylesheet" href="extensions/pointer/deck.pointer.css">
     <link rel="stylesheet" href="extensions/syntaxhighlighter/deck.syntaxhighlighter.css">
- -->
+
     <!-- Style theme. More available in /themes/style/ or create your own. -->
-<!--     <link rel="stylesheet" href="themes/style/profesh.css">
- -->    
+    <link rel="stylesheet" href="themes/style/profesh.css">
+    
     <!-- Transition theme. More available in /themes/transition/ or create your own. -->
-<!--     <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
- -->    
+    <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+    
     <!-- Required Modernizr file -->
     <script src="modernizr.custom.js"></script>
     <script type="text/javascript" src="http://use.typekit.com/ewk1gzp.js"></script>
@@ -43,8 +43,7 @@
             <h2>with CSS3</h2>
         </hgroup>
         <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
-        <p>Follow along at <a href="http://RachelNabors.com/css-amv-talk">TODO: URL shortner</a></p>
-        <img src="img/bg_no-flash.png" alt="No Flash Allowed">
+        <p>Follow along at <a href="http://RachelNabors.com/animation-power">TODO: URL shortner</a></p>
     </div>
     <figure class="self-portrait">
         <img src="img/p_rachelnabors.png" alt="A manga-inspired self-portrait of Rachel, clutching a laptop and looking adorable.">
@@ -57,10 +56,10 @@
     <ul>
         <li>We're using Chrome, but these animations will work in all recent browsers plus IE 11 (and 10-ish).</li>
         <li>Using <a href="http://leaverou.github.com/prefixfree/">-prefix-free</a> instead of adding vendor prefixes.</li>
-        <li class="slide">For production I recommend Sass (I work on a gem for that: TODO animation studio)</li>
+        <li>For production I recommend Sass (I work on a gem for that, aka <a href="https://github.com/Team-Sass/animation-studio">Animation Studio</a>)</li>
     </ul>
 </section>
-
+<!-- 
 <section class="slide">
     <h2>Why would you do that?</h2>
     <ul>
@@ -69,18 +68,17 @@
         <li class="slide"><strong>It's fun.</strong> Isn't that enough?</li>
         <li class="slide"><strong>Content != copy.</strong> CSS can be used to tell visual stories, not just set line-heights.</li>
     </ul>
-</section>
+</section> -->
 
-<section class="slide">
-    <h1 class="vcenter">Storyboards</h1>
+<section class="slide cover storyboards">
+    <h1 class="vtop">Storyboards</h1>
 </section>
 
 <section class="slide">
     <h2>Prototyping with the 4th dimension</h2>
-    <p>TODO: photo of storyboard</p>
     <p>Originally started at Disney while working on Snow White.</p>
-    <p>Now adopted by film, interaction, comics, anything that involves time and teams.</p>
-    <p>Example storyboard: <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a> <a href="animation/index.html">This is what it looks like when it all comes together.</a></p>
+    <p class="slide">Now adopted by film, interaction, comics, anything that involves time and teams.</p>
+    <p class="slide">Example storyboard for a <a href="animation/index.html">music video</a>: <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
     <ul>
         <li class="slide">Storyboards will save you time</li>
         <li class="slide">Bird's eye view.</li>
@@ -88,15 +86,15 @@
     </ul>
 </section>
 
-<section class="slide">
-    <h1 class="vcenter">The Walk Cycle</h1>
+<section class="slide cover walk-cycle">
+    <h1 class="vtop">The Walk Cycle</h1>
 </section>
 
 
 <section class="slide">
-    <h2>The &ldquo;Hello, world!&rdquo; of animation</h2>
-
-    <!--TODO: Example from Gordon-->
+  <h2>The &ldquo;Hello, world!&rdquo; of animation</h2>
+  <iframe width="420" height="315" src="http://www.youtube.com/embed/rPAIEVJy_SA?rel=0" frameborder="0" allowfullscreen></iframe>
+  <p>Rogue's walkcycle kindly provided by master character designer and animator <a href="http://stevenegordon.com/">Steven K. Gordon</a>.</p>
 </section>
 
 <section class="slide">
@@ -109,14 +107,17 @@
     </ul>
 </section>
 
-<section class="slide">
-    <h1 class="vcenter">Cut Outs</h1>
+<section class="slide cover cutouts">
+    <h1 class="vtop">Cut Outs</h1>
+  <!-- TODO: BG -->
 </section>
 
 <section class="slide">
-    <h2>&ldquo;Cut-outs&rdquo; in Animation</h2>
-    <p>TODO: Example </p>
-    <p>Old technique saves time and reduces unique graphics.</p>
+    <h2>Cutting Corners with &ldquo;Cut-outs&rdquo;</h2>
+    <p>Technique developed in Japan and by Hanna-Barbera to bring cartoons to TV rapidly.</p>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/3s-MnvKIqb8" frameborder="0" allowfullscreen></iframe>
+    <p>(See 1:04)</p>
+    <p class="slide">See also <a class="http://www.escapistmagazine.com/videos/view/the-big-picture/3854-The-Collar">The Importance of Yogi's Collar</a></p>
 </section>
 
 <section class="slide">
@@ -128,40 +129,36 @@
     </ul>
 </section>
 
-<section class="slide">
-    <h1 class="vcenter">Scene Transitions</h1>
+<section class="slide cover transitions">
+    <h1 class="vtop">Scene Transitions</h1>
 </section>
 
-<!-- TODO Example of scene transitions -->
+<section class="slide">
+  <h2>Changing Mindsets and Changing Scenes</h2>
+  <iframe width="420" height="315" src="http://www.youtube.com/embed/VqOJ2MUg7VA?rel=0" frameborder="0" allowfullscreen></iframe>
+  <p>Scene transitions signal to audiences a change in mood, time, or location (or sometimes just a commercial break!)</p>
+  <p class="slide">Think of them like a period between sentences or a space between paragraphs.</p>
+</section>
 
 <section class="slide">
-  <h2>Iris Wipe</h2>
-  <!--TODO: add codepen to example-->
+  <h2>Scene Transitions with CSS</h2>
+  <p data-height="268" data-theme-id="0" data-slug-hash="lqswg" data-user="rachelnabors" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/rachelnabors/pen/lqswg'>The Black Brick Road of OZ, #11</a> by Rachel Nabors (<a href='http://codepen.io/rachelnabors'>@rachelnabors</a>) on <a href='http://codepen.io'>CodePen</a></p>
+  <script async src="http://codepen.io/assets/embed/ei.js"></script>
   <p class="slide">I ended up using a <a href="http://stash.rachelnabors.com/oz/opening/cut-hole.png" target="_blank">big background image</a> that I shrank to fit using <code>background-scale</code></p>
 </section>
 
-<section class="slide">
-  <h2>Fading to Black</h2>
-  <p>Fade to black with a slow opacity transition</p>
-
-  <!-- TODO: add codepen example -->
-</section>
-
-  <!-- TODO: extra: make a cross fade example -->
-
-<section class="slide">
-    <h1 class="vcenter">Parallax</h1>
+<section class="slide cover parallax">
+    <h1 class="vtop">Parallax</h1>
 </section>
 
 <section class="slide">
   <h2>Parallax in Animation</h2>
-
+  
+  <iframe width="420" height="315" src="http://www.youtube.com/embed/qIwtXkdWQ0o?rel=0" frameborder="0" allowfullscreen></iframe>
+  
   <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving.</p>
 
   <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multipane camera</a> invented by Ub Iwerks in 1933.</p>
-  <!-- TODO: Add photo of the machine -->
-  
-  <p class="slide"><a href="https://www.youtube.com/watch?feature=player_detailpage&amp;v=qIwtXkdWQ0o#t=81s" target="_blank">Used masterfully to great effect in <em>The Last Unicorn</em>.</a></p><!--TODO: fix jump link-->
 </section>
 
 
@@ -169,33 +166,32 @@
   <h2>Parallax with CSS</h2>
 
   <pre class="codepen" data-height="300" data-type="result" data-href="AvGhp" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/AvGhp">Check out this Pen!</a></pre>
+</section>
 
+<section class="slide">
+  <h2>Parallax in Theory</h2>
   <figure>
     <img src="img/fig_parallax.png">
     <figcaption>The shorter images have less distance to cover in the same amount of time as the longer images, so they move slower.</figcaption>
   </figure>
-
+  <p class="slide"><a href="http://blog.teamtreehouse.com/multiplane-design-with-svgs-and-css-3d-transforms">You can do it with 3D transforms, too!</a></p>
 </section>
 
-<!-- TODO: Mention it's possible w/ 3D transforms, too. -->
-
-<section class="slide">
-    <h1 class="vcenter">Cushioning/Easing/Timing Functions</h1>
+<section class="slide cover easing">
+    <h1 class="vtop">Cushioning, Easing, Timing Functions</h1>
 </section>
 
 <section class="slide">
   <h2>&ldquo;Cushioning&rdquo; in Animation</h2>
   <p>In animation, &ldquo;timing functions&rdquo; are called &ldquo;cushioning&rdquo;</p>
-  <!-- TODO: can we see some examples? -->
-  <p><strong>Science!</strong> A falling ball picks up speed due to gravity. A rolling ball slows down from friction. How could science apply to <abbr title="User Interface">UI</abbr> design?</p>
-  <div class="slide">
-    <p>Timing functions are defined by a bezier curve, which means you can make your own at <a href="http://cubic-bezier.com/" target="_blank">cubic-bezier.com</a>! Give it a try!</p>
-  </div>
+  <iframe width="420" height="315" src="http://www.youtube.com/embed/yyRUrDUHLPo?rel=0" frameborder="0" allowfullscreen></iframe>
+  <p><strong>Science!</strong> A falling ball picks up speed due to gravity. A rolling ball slows down from friction. <a href="https://medium.com/design-ux/926eb80d64e3">How could science apply to <abbr title="User Interface">UI</abbr> design?</a></p>
 </section>
 
 <section class="slide">
   <h2>&ldquo;Cushioning&rdquo; with CSS</h2>
-  <!-- TODO: Extra: have rolling a ball, dropping a ball, and accelerating a car -->
+
+<p data-height="268" data-theme-id="0" data-slug-hash="yqloD" data-user="rachelnabors" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/rachelnabors/pen/yqloD'>Rolling a Ball with CSS Transitions</a> by Rachel Nabors (<a href='http://codepen.io/rachelnabors'>@rachelnabors</a>) on <a href='http://codepen.io'>CodePen</a></p>
 
   <div class="slide">
     <h3>CSS's timing functions:</h3>
@@ -207,18 +203,14 @@
       <li><code>cubic-bezier(<strong><a href="http://cubic-bezier.com/" target="_blank">ROLL YOUR OWN!</a></strong>)</code></li>
     </ul>
   </div>
-  <!-- TODO example -->
 
-  <pre class="codepen" data-height="300" data-type="result" data-href="2742ec29c7ef522bfd95823ab7e81ac9" data-user="rachelnabors" data-safe="true"><code></code></pre>
-
-  <p>Start Coding! <a href="http://codepen.io/rachelnabors/pen/oltwE" target="_blank">codepen.io/rachelnabors/pen/oltwE</a></p>
 </section>
 
 <section class="slide">
     <h1>Just the Beginning!</h1>
     <p>With these skills, you can build all kinds of nifty interactions, like <a href="http://cdpn.io/lqswg">this</a>.</p>
     <p><a href="https://twitter.com/rachelnabors">Follow me on Twitter @RachelNabors</a> to keep up with the cool new things I'm uncovering.</p>
-    <p>Slides: <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a></p>
+    <p>Slides: <a href="http://RachelNabors.com/css-amv-talk">RachelNabors.com/css-amv-talk</a><!-- TODO --></p>
     <p>More animation goodies at my site: <a href="http://rachelnabors.com/">RachelNabors.com</a></p>
 </section>
 
@@ -250,11 +242,11 @@
 
 
 <!-- Required JS files. -->
-<!-- <script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-1.7.2.min.js"></script>
 <script src="core/deck.core.js"></script>
- -->
+
 <!-- Extension JS files. Add or remove as needed. -->
-<!-- <script src="core/deck.core.js"></script>
+<script src="core/deck.core.js"></script>
 <script src="extensions/hash/deck.hash.js"></script>
 <script src="extensions/menu/deck.menu.js"></script>
 <script src="extensions/goto/deck.goto.js"></script>
@@ -264,8 +256,7 @@
 <script src="extensions/pointer/deck.pointer.js"></script>
 <script src="extensions/syntaxhighlighter/deck.syntaxhighlighter.js"></script>
 <script src="extensions/iframes/deck.iframes.js"></script>
- --><!-- Initialize the deck. You can put this in an external file if desired. -->
-<script>
+ <script>
     $(function() {
         $.deck('.slide');
         //$.deck('iframes');

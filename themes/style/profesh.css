@@ -67,6 +67,16 @@
       transform: none; }
       .deck-container .slide h1.vcenter {
         margin: 0; }
+      .deck-container .slide h1.vtop {
+        font-family: "OstrichSansMedium", sans-serif;
+        color: #dfeff6;
+        background: rgba(20, 31, 49, 0.5);
+        margin: 0;
+        padding: 0 .25em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-shadow: 0px 1px 3px rgba(20, 31, 49, 0.6); }
     .deck-container .slide h2 {
       font-family: "OstrichSansMedium", sans-serif;
       border-bottom-color: #858585;
@@ -130,3 +140,27 @@
     background: #eee; }
   .deck-container.deck-menu .deck-current, .no-touch .deck-container.deck-menu .slide:hover {
     background: #ddf; }
+
+.cover.storyboards {
+  background: url(../../img/bg_storyboards.jpg) no-repeat 0 0;
+  background-size: cover; }
+
+.cover.walk-cycle {
+  background: url(../../img/bg_walk-cycle.png) no-repeat 0 0;
+  background-size: cover; }
+  .cover.walk-cycle h1.vtop {
+    color: #d6e549; }
+
+.cover.transitions {
+  background: black url(../../img/bg_transitions.png) no-repeat center center;
+  background-size: contain; }
+
+.cover.parallax {
+  background: black url(../../img/bg_parallax.jpg) no-repeat center center;
+  background-size: contain; }
+
+.cover.easing {
+  background: url(../../img/bg_easing.png) no-repeat 0 0;
+  background-size: cover; }
+  .cover.easing h1.vtop {
+    color: #d6e549; }
