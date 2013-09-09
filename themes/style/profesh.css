@@ -155,6 +155,10 @@
   background: black url(../../img/bg_transitions.png) no-repeat center center;
   background-size: contain; }
 
+.cover.cutouts {
+  background: black url(../../img/bg_cutouts.jpg) no-repeat center center;
+  background-size: cover; }
+
 .cover.parallax {
   background: black url(../../img/bg_parallax.jpg) no-repeat center center;
   background-size: contain; }

@@ -231,6 +231,11 @@ $grey: #858585;
 	background-size: contain;
 }
 
+.cover.cutouts {
+	background: #000 url(../../img/bg_cutouts.jpg) no-repeat center center;
+	background-size: cover;
+}
+
 .cover.parallax {
 	background: #000 url(../../img/bg_parallax.jpg) no-repeat center center;
 	background-size: contain;
