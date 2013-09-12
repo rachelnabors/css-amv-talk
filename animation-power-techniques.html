@@ -52,6 +52,14 @@
 </section>
 
 <section class="slide">
+  <h2>I am Rachel <del>the Great</del> Nabors</h2>
+  <figure>
+    <img src="img/fig_rachel-tuna.png" alt="Rachel the Great and her talking cat Tuna, waving.">
+    <figcaption>You can still read the comic adventures of Rachel and Tuna at <a href="http://www.rachelthegreat.com" target="_blank">RacheltheGreat.com</a></figcaption>
+  </figure>
+</section>
+
+<section class="slide">
     <h2>Assumptions! We have them!</h2>
     <ul>
         <li>We're using Chrome, but these animations will work in all recent browsers plus IE 11 (and 10-ish).</li>
@@ -59,16 +67,6 @@
         <li>For production I recommend Sass (I work on a gem for that, aka <a href="https://github.com/Team-Sass/animation-studio">Animation Studio</a>)</li>
     </ul>
 </section>
-<!-- 
-<section class="slide">
-    <h2>Why would you do that?</h2>
-    <ul>
-        <li class="slide"><strong>It's familiar.</strong> You have and know the tools already.</li>
-        <li class="slide"><strong>It's the future.</strong> Working with advanced techniques forces a deeper understanding.</li>
-        <li class="slide"><strong>It's fun.</strong> Isn't that enough?</li>
-        <li class="slide"><strong>Content != copy.</strong> CSS can be used to tell visual stories, not just set line-heights.</li>
-    </ul>
-</section> -->
 
 <section class="slide cover storyboards">
     <h1 class="vtop">Storyboards</h1>
@@ -102,7 +100,7 @@
     <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script>
     <ul>
-        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://www.rachelnabors.com/animation/candyHalo1/toys/img/tuna-walking_sprite.png">sprite</a>)</li>
+        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://rachelnabors.com/css-amv-talk/animation/img/tuna_sprite.png">sprite</a>)</li>
         <li class="slide">...which breaks down to <code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;iteration-count&gt;;</code></li>
     </ul>
 </section>
@@ -158,7 +156,7 @@
   
   <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving.</p>
 
-  <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multipane camera</a> invented by Ub Iwerks in 1933.</p>
+  <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multiplane camera</a> invented by Ub Iwerks in 1933.</p>
 </section>
 
 
@@ -259,7 +257,7 @@
  <script>
     $(function() {
         $.deck('.slide');
-        //$.deck('iframes');
+        $.deck('iframes');
     });
 </script>
 </body>
