@@ -473,6 +473,7 @@ that use the API provided by core.
 	transform.  Blanking the src when a previously shown slide goes out
 	of view prevents this.
 	*/
+	// Commented out because https://github.com/imakewebthings/deck.js/issues/125#issuecomment-17849567
 	// $d.bind('deck.change', function(e, from, to) {
 	// 	var oldFrames = $[deck]('getSlide', from).find('iframe'),
 	// 	newFrames = $[deck]('getSlide', to).find('iframe');
