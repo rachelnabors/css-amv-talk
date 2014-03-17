@@ -15,39 +15,39 @@ h1 {
 
 .midground .tuna {
   animation-fill-mode: forwards;
-  background: url(../img/tuna_sprite.png) 0 0 no-repeat; 
+  background: url(../img/tuna_sprite.png) 0 0 no-repeat;
   width: 400px; height: 200px;
   margin-left: -800px; /* offset half the width to center */
   position: absolute;
   bottom: 183px; left: 50%;
   opacity: 1;
   transform: scaleX(-1);
-  transition: 
+  transition:
     margin-left 4s linear,
     opacity .1s linear 10.5s;
 }
 
-@keyframes walk-cycle {  
-  0% {background-position: 0 0; } 
-  100% {background-position: 0 -2400px; } 
+@keyframes walk-cycle {
+  0% {background-position: 0 0; }
+  100% {background-position: 0 -2400px; }
 }
 
-@keyframes sit-down {  
-  0% { background-position: -400px 0; } 
-  100% {background-position: -400px -1000px; } 
+@keyframes sit-down {
+  0% { background-position: -400px 0; }
+  100% {background-position: -400px -1000px; }
 }
 
 @keyframes typing {
-  0% { background-position: -400px -1000px; } 
-  100% {background-position: -400px -1400px; } 
+  0% { background-position: -400px -1000px; }
+  100% {background-position: -400px -1400px; }
 }
 
-.playing .midground .tuna { 
-  animation: 
-    walk-cycle 1s steps(12) 4, 
+.playing .midground .tuna {
+  animation:
+    walk-cycle 1s steps(12) 4,
     sit-down .5s steps(5) 4s 1,
     typing .5s steps(2) 4.5s infinite;
-  margin-left: -300px; 
+  margin-left: -300px;
   opacity: 0;
 }
 
@@ -98,21 +98,21 @@ h1 {
 
 #left-floor-monitor {
   background: url(../img/sprite_equip_monitor_left.png) 0 0 no-repeat;
-  bottom: 46px; 
+  bottom: 46px;
   margin-left: -862px;
   width: 1054px; height: 303px;
 }
 
 #right-floor-monitor {
   background: url(../img/sprite_equip_monitor_right.png) 0 0 no-repeat;
-  bottom: 13px; 
+  bottom: 13px;
   margin-left: 144px;
   width: 482px; height: 346px;
 }
 
 #mixer {
   background: url(../img/sprite_equip_mixer.png) 0 0 no-repeat;
-  bottom: 219px; 
+  bottom: 219px;
   margin-left: -298px;
   width: 612px; height: 462px;
   z-index: 3;
@@ -120,7 +120,7 @@ h1 {
 
 .speakers {
   bottom: 350px;
-  z-index: 2;  
+  z-index: 2;
 }
 
 #left-speaker {
@@ -131,22 +131,22 @@ h1 {
 
 @keyframes throb {
   0% { transform: scale(0.98); }
-  100% { transform: scale(1); } 
+  100% { transform: scale(1); }
 }
 
 @keyframes left-speaker-scoot {
   0% { background-position: 0 0; }
-  100% { background-position: 0 -606px; } 
+  100% { background-position: 0 -606px; }
 }
 
 @keyframes right-speaker-fiddle {
   0% { background-position: 0 0; }
-  100% { background-position: 0 -692px; } 
+  100% { background-position: 0 -692px; }
 }
 
 @keyframes mixer-nudge {
   0% { background-position: 0 0; }
-  100% { background-position: 0 -462px; } 
+  100% { background-position: 0 -462px; }
 }
 
 .playing #left-floor-monitor {
@@ -161,24 +161,24 @@ h1 {
 
 .playing #mixer {
   margin-left: -294px;
-  transition: 
+  transition:
     margin-left .3s linear 12.01s,
     opacity .01s linear 12s;
   animation: mixer-nudge .4s steps(1) 12.01s forwards;
 }
 
 @keyframes mixer-nudge {
-  0% { 
-    background-position: 0 0; 
+  0% {
+    background-position: 0 0;
   }
-  100% { 
-    background-position: 0 -462px; 
-  } 
+  100% {
+    background-position: 0 -462px;
+  }
 }
 
-.playing .speakers { 
-  bottom: 300px; 
-  transition: 
+.playing .speakers {
+  bottom: 300px;
+  transition:
     opacity .5s linear 13s,
     bottom .5s linear 13s;
   animation: throb .5s linear 14.75s infinite;
@@ -212,7 +212,7 @@ h1 {
 
 .playing .background .tuna {
   bottom: 615px;
-  transition: 
+  transition:
     bottom 1s linear 12.02s,
     opacity .01s linear 12.5s;
 }
@@ -235,11 +235,12 @@ h1 {
 
 #curtains {
 background:
-  linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent 75%), 
-  linear-gradient(91deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, #666666 35%, #595959 40%, #4d4d4d 43%, #999999 50%, #ababab 55%, #a6a6a6 60%, #999999 65%, #737373 70%, #595959 75%, rgba(153, 153, 153, 0) 80%, rgba(153, 153, 153, 0)), 
+  linear-gradient(0deg, rgba(0, 0, 0, 0.25), transparent 75%),
+  linear-gradient(91deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 30%, #666666 35%, #595959 40%, #4d4d4d 43%, #999999 50%, #ababab 55%, #a6a6a6 60%, #999999 65%, #737373 70%, #595959 75%, rgba(153, 153, 153, 0) 80%, rgba(153, 153, 153, 0)),
   linear-gradient(88deg, #595959, #737373 20%, #8c8c8c 25%, #999999 40%, #808080 50%, #737373 70%, #666666 80%, #595959 90%, #4d4d4d);
 background-size: auto, 300px 100%, 109px 100%;
   box-shadow: 0px 10px 100px 10px rgba(42, 41, 51, 1);
+  top: 0;
   transition: top 2s ease-in;
   z-index: 3;
 }
@@ -284,7 +285,7 @@ background-size: auto, 300px 100%, 109px 100%;
 
 /* Loaded */
 .loaded #sign {
-  margin-top: -200%;  
+  margin-top: -200%;
 }
 
 .loaded #tassel {
