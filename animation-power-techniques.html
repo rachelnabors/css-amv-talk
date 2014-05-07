@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=1024, user-scalable=no">
 
     <title>Rachel Nabors on Animation Studio Power Techniques with CSS</title>
-    
+
     <!-- Required stylesheet -->
     <link rel="stylesheet" href="core/deck.core.css">
-    
+
     <!-- Extension CSS files go here. Remove or add as needed. -->
     <link rel="stylesheet" href="extensions/goto/deck.goto.css">
     <link rel="stylesheet" href="extensions/menu/deck.menu.css">
@@ -22,10 +22,10 @@
 
     <!-- Style theme. More available in /themes/style/ or create your own. -->
     <link rel="stylesheet" href="themes/style/profesh.css">
-    
+
     <!-- Transition theme. More available in /themes/transition/ or create your own. -->
     <link rel="stylesheet" href="themes/transition/horizontal-slide.css">
-    
+
     <!-- Required Modernizr file -->
     <script src="modernizr.custom.js"></script>
     <script type="text/javascript" src="http://use.typekit.com/ewk1gzp.js"></script>
@@ -76,7 +76,7 @@
     <h2>Prototyping with the 4th dimension</h2>
     <p>Originally started at Disney while working on Snow White.</p>
     <p class="slide">Now adopted by film, interaction, comics, anything that involves time and teams.</p>
-    <p class="slide">Example storyboard for a <a href="animation/index.html">music video</a>: <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
+    <p class="slide">Example storyboard for a <a href="animation/index.html" target="_blank">music video</a>: <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
     <ul>
         <li class="slide">Storyboards will save you time</li>
         <li class="slide">Help you figure out your timing later.</li>
@@ -101,7 +101,7 @@
     <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script>
     <ul>
-        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://rachelnabors.com/css-amv-talk/animation/img/tuna_sprite.png">sprite</a>)</li>
+        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://rachelnabors.com/css-amv-talk/animation/img/tuna_sprite.png" target="_blank">sprite</a>)</li>
         <li class="slide">...which breaks down to <code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;iteration-count&gt;;</code></li>
     </ul>
 </section>
@@ -116,13 +116,13 @@
     <p>Technique developed in Japan and by Hanna-Barbera to bring cartoons to TV rapidly.</p>
     <iframe width="420" height="315" src="http://www.youtube.com/embed/3s-MnvKIqb8" frameborder="0" allowfullscreen></iframe>
     <p>(See 1:04)</p>
-    <p class="slide">See also <a class="http://www.escapistmagazine.com/videos/view/the-big-picture/3854-The-Collar">The Importance of Yogi's Collar</a></p>
+    <p class="slide">See also <a href="http://www.escapistmagazine.com/videos/view/the-big-picture/3854-The-Collar" target="_blank">The Importance of Yogi's Collar</a></p>
 </section>
 
 <section class="slide">
     <h2>Cut-outs with CSS</h2>
     <ul>
-        <li class="slide"><a href="animation/img/sprite_tuna_boss.png">Check out this sprite.</a></li>
+        <li class="slide"><a href="animation/img/sprite_tuna_boss.png" target="_blank">Check out this sprite.</a></li>
         <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></li>
     </ul>
@@ -152,9 +152,9 @@
 
 <section class="slide">
   <h2>Parallax in Animation</h2>
-  
+
   <iframe width="420" height="315" src="http://www.youtube.com/embed/qIwtXkdWQ0o?rel=0" frameborder="0" allowfullscreen></iframe>
-  
+
   <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving.</p>
 
   <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multiplane camera</a> invented by Ub Iwerks in 1933.</p>
@@ -173,7 +173,7 @@
     <img src="img/fig_parallax.png">
     <figcaption>The shorter images have less distance to cover in the same amount of time as the longer images, so they move slower.</figcaption>
   </figure>
-  <p class="slide"><a href="http://blog.teamtreehouse.com/multiplane-design-with-svgs-and-css-3d-transforms">You can do it with 3D transforms, too!</a></p>
+  <p class="slide"><a href="http://blog.teamtreehouse.com/multiplane-design-with-svgs-and-css-3d-transforms" target="_blank">You can do it with 3D transforms, too!</a></p>
 </section>
 
 <section class="slide cover easing">
@@ -257,7 +257,56 @@
 <!-- Required JS files. -->
 <script src="jquery-1.7.2.min.js"></script>
 <script src="core/deck.core.js"></script>
+<script>
+  // https://github.com/imakewebthings/deck.js/issues/134#issuecomment-25665129
+  // A patch to keep it from crashing iPads/running slowly. Hopefully not forever.
+  (function($, deck, undefined) {
+    var $d = $(document),
 
+    toggleHorizon = function(base, fn) {
+      var slides = $[deck]('getSlides'),
+      opts = $[deck]('getOptions'),
+      min = base - opts.horizon,
+      max = base + opts.horizon,
+      i;
+
+      min = min < 0 ? 0 : min;
+      max = max > slides.length ? slides.length : max;
+
+      for (i = 0; i < min; i++) {
+        slides[i][fn](opts.classes.horizon);
+      }
+      for (i = max; i < slides.length; i++) {
+        slides[i][fn](opts.classes.horizon);
+      }
+    },
+
+    updateHorizon = function(e, from, to) {
+      if (from || from === 0) {
+        toggleHorizon(from, 'removeClass');
+      }
+
+      if (to || to === 0) {
+        toggleHorizon(to, 'addClass');
+      }
+    };
+
+    $.extend(true, $[deck].defaults, {
+      classes: {
+        horizon: 'deck-horizon'
+      },
+
+      horizon: 10
+    });
+
+    $d.bind('deck.init', function() {
+      updateHorizon(null, null, 0);
+    })
+    .bind('deck.change', updateHorizon);
+
+  })(jQuery, 'deck');
+
+</script>
 <!-- Extension JS files. Add or remove as needed. -->
 <script src="core/deck.core.js"></script>
 <script src="extensions/hash/deck.hash.js"></script>
