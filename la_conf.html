@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=1024, user-scalable=no">
 
-    <title>Rachel Nabors on Animation Studio Power Techniques with CSS</title>
+    <title>Rachel Nabors, La Conf, Animations and HTML5 Talk</title>
 
     <!-- Required stylesheet -->
     <link rel="stylesheet" href="core/deck.core.css">
@@ -42,8 +42,7 @@
             <h1>Animation Studio <br />Power Techniques</h1>
             <h2>with CSS3</h2>
         </hgroup>
-        <p>With cartoonist turned web developer Rachel Nabors! <br /><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
-        <p>Follow along at <a href="http://share.RachelNabors.com/animationpower">share.RachelNabors.com/animationpower</a></p>
+        <p><a href="http://www.rachelnabors.com">RachelNabors.com</a> <a href="http://twitter.com/rachelnabors">@RachelNabors</a></p>
     </div>
     <figure class="self-portrait">
         <img src="img/p_rachelnabors.png" alt="A manga-inspired self-portrait of Rachel, clutching a laptop and looking adorable.">
@@ -59,12 +58,30 @@
   </figure>
 </section>
 
+<section class="slide" style="background: #000">
+  <img src="img/p_comic-braces.jpg" alt="Hmm. You should get braces.">
+</section>
+
+<section class="slide">
+  <h2>Comics/animation skillz&hellip;</h2>
+  <img src="img/comic-layout1.png" alt="A comic layout.">
+</section>
+
+<section class="slide">
+  <h2>&hellip;are useful to web development.</h2>
+  <img src="img/comic-layout2.png" alt="A website layout.">
+</section>
+
 <section class="slide">
   <h2>My new canvas</h2>
   <figure>
     <img src="img/p_square-bird-trans.png" alt="Tin Magpie">
-    <figcaption style="text-align: center">Now I tell stories using my front-end development skills at my company, <a href="http://www.tinmagpiebcom.com" target="_blank">TinMagpie.com</a></figcaption>
+    <figcaption style="text-align: center"><a href="http://tinmagpie.com" target="_blank">TinMagpie.com</a></figcaption>
   </figure>
+</section>
+
+<section class="slide">
+    <h1 class="vcenter">Why?</h1>
 </section>
 
 <section class="slide">
@@ -82,15 +99,7 @@
 
 <section class="slide">
     <h2>Prototyping with the 4th dimension</h2>
-    <p>Originally started at Disney while working on Snow White.</p>
-    <p class="slide">Now adopted by film, interaction, comics, anything that involves time and teams.</p>
-    <p class="slide">Example storyboard for a <a href="animation/index.html" target="_blank">music video</a>: <a href="storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
-    <ul>
-        <li class="slide">Storyboards will save you time</li>
-        <li class="slide">Help you figure out your timing later.</li>
-        <li class="slide">Bird's eye view.</li>
-        <li class="slide">Let's you break down a project to distribute among teams.</li>
-    </ul>
+    <p>Example storyboard for a <a href="http://RachelNabors.com/css-amv-talk/animation/index.html" target="_blank">music video</a>: <a href="http://RachelNabors.com/css-amv-talk/storyboard/index.html" target="_blank">RachelNabors.com/css-amv-talk/storyboard</a></p>
 </section>
 
 <section class="slide cover walk-cycle">
@@ -108,10 +117,6 @@
     <h2>Walkcycles with CSS</h2>
     <pre class="codepen" data-height="300" data-type="result" data-href="bpAJH" data-user="rachelnabors"><code></code></pre>
 <script async src="http://codepen.io/assets/embed/ei.js"></script>
-    <ul>
-        <li class="slide">The magic is all in <code>animation: walk-cycle 1s <strong>steps(12)</strong> infinite;</code> (also, the keyframes and the <a href="http://rachelnabors.com/css-amv-talk/animation/img/tuna_sprite.png" target="_blank">sprite</a>)</li>
-        <li class="slide">...which breaks down to <code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;iteration-count&gt;;</code></li>
-    </ul>
 </section>
 
 <section class="slide cover cutouts">
@@ -121,19 +126,15 @@
 
 <section class="slide">
     <h2>Cutting Corners with &ldquo;Cut-outs&rdquo;</h2>
-    <p>Technique developed in Japan and by Hanna-Barbera to bring cartoons to TV rapidly.</p>
+    <p>In action! <em>(See 1:04)</em></p>
     <iframe width="420" height="315" src="http://www.youtube.com/embed/3s-MnvKIqb8" frameborder="0" allowfullscreen></iframe>
-    <p>(See 1:04)</p>
-    <p class="slide">See also <a href="http://www.escapistmagazine.com/videos/view/the-big-picture/3854-The-Collar" target="_blank">The Importance of Yogi's Collar</a></p>
 </section>
 
 <section class="slide">
     <h2>Cut-outs with CSS</h2>
-    <ul>
-        <li class="slide"><a href="animation/img/sprite_tuna_boss.png" target="_blank">Check out this sprite.</a></li>
-        <li class="slide"><pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code></pre>
+        <pre class="codepen" data-height="300" data-type="result" data-href="kEeBl" data-user="rachelnabors"><code></code>
 <script async src="http://codepen.io/assets/embed/ei.js"></script></li>
-    </ul>
+    <p><a href="http://RachelNabors.com/css-amv-talk/animation/img/sprite_tuna_boss.png" target="_blank">Check out this sprite.</a></p>
 </section>
 
 <section class="slide cover transitions">
@@ -141,17 +142,16 @@
 </section>
 
 <section class="slide">
-  <h2>Changing Mindsets and Changing Scenes</h2>
+  <h2>A shift in mood, time, or location</h2>
   <iframe width="420" height="315" src="http://www.youtube.com/embed/VqOJ2MUg7VA?rel=0" frameborder="0" allowfullscreen></iframe>
-  <p>Scene transitions signal to audiences a change in mood, time, or location (or sometimes just a commercial break!)</p>
-  <p class="slide">Think of them like a period between sentences or a space between paragraphs.</p>
 </section>
 
 <section class="slide">
   <h2>Scene Transitions with CSS</h2>
   <p data-height="268" data-theme-id="0" data-slug-hash="lqswg" data-user="rachelnabors" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/rachelnabors/pen/lqswg'>The Black Brick Road of OZ, #11</a> by Rachel Nabors (<a href='http://codepen.io/rachelnabors'>@rachelnabors</a>) on <a href='http://codepen.io'>CodePen</a></p>
   <script async src="http://codepen.io/assets/embed/ei.js"></script>
-  <p class="slide">I ended up using a <a href="http://stash.rachelnabors.com/oz/opening/cut-hole.png" target="_blank">big background image</a> that I shrank to fit using <code>background-scale</code></p>
+  <p class="slide">The <a href="http://stash.rachelnabors.com/oz/opening/cut-hole.png" target="_blank">big background image</a> that I shrank to fit using <code>background-scale</code></p>
+  <p class="slide">See also the transitions in Evernote's iPad app. (I haz a video!)</p>
 </section>
 
 <section class="slide cover parallax">
@@ -162,17 +162,13 @@
   <h2>Parallax in Animation</h2>
 
   <iframe width="420" height="315" src="http://www.youtube.com/embed/qIwtXkdWQ0o?rel=0" frameborder="0" allowfullscreen></iframe>
-
-  <p>Parallax is when multiple background layers are moved at different speeds to imitate how views change when moving.</p>
-
-  <p class="slide">Required the <a href="http://en.wikipedia.org/wiki/Multiplane_camera" target="_blank">multiplane camera</a> invented by Ub Iwerks in 1933.</p>
 </section>
 
 
 <section class="slide">
   <h2>Parallax with CSS</h2>
 
-  <pre class="codepen" data-height="300" data-type="result" data-href="AvGhp" data-user="rachelnabors" data-safe="true"><code></code><a href="http://codepen.io/rachelnabors/pen/AvGhp">Check out this Pen!</a></pre>
+  <p data-height="268" data-theme-id="0" data-slug-hash="rCost" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/rachelnabors/pen/rCost/'>Complete CSS3 + HTML5 music video</a> by Rachel Nabors (<a href='http://codepen.io/rachelnabors'>@rachelnabors</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 </section>
 
 <section class="slide">
@@ -181,7 +177,6 @@
     <img src="img/fig_parallax.png">
     <figcaption>The shorter images have less distance to cover in the same amount of time as the longer images, so they move slower.</figcaption>
   </figure>
-  <p class="slide"><a href="http://blog.teamtreehouse.com/multiplane-design-with-svgs-and-css-3d-transforms" target="_blank">You can do it with 3D transforms, too!</a></p>
 </section>
 
 <section class="slide cover easing">
@@ -190,9 +185,7 @@
 
 <section class="slide">
   <h2>&ldquo;Cushioning&rdquo; in Animation</h2>
-  <p>In animation, &ldquo;timing functions&rdquo; are called &ldquo;cushioning&rdquo;</p>
   <iframe width="420" height="315" src="http://www.youtube.com/embed/yyRUrDUHLPo?rel=0" frameborder="0" allowfullscreen></iframe>
-  <p><strong>Science!</strong> A falling ball picks up speed due to gravity. A rolling ball slows down from friction. <a href="https://medium.com/design-ux/926eb80d64e3" target="_blank">How could science apply to <abbr title="User Interface">UI</abbr> design?</a></p>
 </section>
 
 <section class="slide">
@@ -214,26 +207,14 @@
 </section>
 
 <section class="slide">
-  <h2>Why animating in the browser kicks ass</h2>
-  <ul>
-      <li class="slide"><strong>It's familiar.</strong> You have and know the tools already.</li>
-      <li class="slide"><strong>It's the future.</strong> Working with advanced techniques forces a deeper understanding.</li>
-      <li class="slide"><strong>It's fun.</strong> Isn't that enough?</li>
-      <li class="slide"><strong>Content != copy.</strong> CSS can be used to tell visual stories, not just set line-heights.</li>
-  </ul>
-</section>
-
-
-<section class="slide">
     <h1>Just the Beginning!</h1>
-    <p>With these skills, you can build all kinds of nifty interactions, like <a href="http://rachelnabors.com/alice-in-videoland/book" target="_blank">this</a> or <a href="http://rachelnabors.com/blackbrickroad" target="_blank">this</a>.</p>
+    <p>Oh, the place we will go.</p>
 </section>
 
 <section class="slide">
     <h1>Where to go from here</h1>
-    <p>Slides: <a href="http://share.rachelnabors.com/animationpower" target="_blank">share.RachelNabors.com/animationpower</a></p>
     <p>More examples and slides at <a href="http://rachelnabors.com" target="_blank">RachelNabors.com</a> &amp; on my screencast, <a href="http://theinfinitecanvas.com" target="_blank">TheInfiniteCanvas.com</a></p>
-    <p class="slide">My <a href="http://frontendmasters.com/courses/animation-storytelling-html5-css3/?partners=1679091c5a880faf6fb5e6087eb1b2dc" target="_blank">master class workshop on animations is at Frontend Masters</a>.</p>
+    <p>+ Giving my CSS animation masterclass at Fronteers</p>
 </section>
 
 <!-- Begin extension snippets. Add or remove as needed. -->
